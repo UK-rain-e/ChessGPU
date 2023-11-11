@@ -9,6 +9,14 @@
     <title>Blank Project</title>
     <script src="playcanvas-stable.min.js"></script>
     <script src="__settings__.js"></script>
+    <script>var exports = {}</script>
+    <script src="./src/chess.js"></script>
+    <script type="module">
+        import { helloWorld } from "./src/hello-world.js";
+        console.log(exports.Chess, "fasdfadsf");
+        helloWorld();
+    </script>
+    <script src="src/board-manager.js"></script>
 </head>
 <body>
     <script src="__modules__.js"></script>
