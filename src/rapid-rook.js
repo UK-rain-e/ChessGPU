@@ -1,5 +1,3 @@
-// const helloWorld = require(".");
-
 window.addEventListener("DOMContentLoaded", function () {
     setInterval(
         () => {

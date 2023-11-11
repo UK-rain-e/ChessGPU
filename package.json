@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "chess": "^1.2.1",
-    "serve": "^14.2.1"
+    "chess.js": "^1.0.0-beta.6",
+    "serve": "^14.2.1",
+    "typescript": "^5.2.2"
   }
 }
