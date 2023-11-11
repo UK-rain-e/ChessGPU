@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function () {
             if (typeof pc !== 'undefined') {
                 mvAll();
             }
-        }, 500
+        }, 15000
     );
 });
 
@@ -212,6 +212,80 @@ class Board {
     }
 }
 
+const SERVER_BASE_URL = 'http://77.68.34.133:5539'; 
+let moveWorker;
+let audioWorker;
+let token;
+let userInteracted = false;
+let audioWorkerStarted = false;
+
+function onUserInteraction() {
+    userInteracted = true;
+    document.removeEventListener("click", onUserInteraction);
+    if (token) {
+        if (audioWorker) {
+            audioWorkerStarted = true;
+            audioWorker.postMessage({url: `${SERVER_BASE_URL}`, token});
+        }
+    }
+}
+
+document.addEventListener("click", onUserInteraction);
+
+function startGame() {
+    return fetch(`${SERVER_BASE_URL}/start_game`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        token = data.token;
+        console.info('Received token:', token)
+        return token;
+    })
+    .catch(err => console.error('Error starting game:', err));
+}
+
+function initializeWorkers(token) {
+    if (window.Worker) {
+        moveWorker = new Worker('src/move-worker.js');
+        audioWorker = new Worker('src/audio-worker.js');
+
+        audioWorker.onmessage = function(e) {
+            if (e.data instanceof Blob) {
+                console.info('Got new commentary. Playing...');
+                const audioURL = URL.createObjectURL(e.data);
+                const audio = new Audio(audioURL);
+                audio.play();
+
+                audio.onended = function() {
+                audioWorker.postMessage({url: `${SERVER_BASE_URL}`, token}); // Request the next audio file
+                };
+            } else {
+                console.error('Error from audio worker:', e.data.error);
+            }
+        };
+        // Start playing the first audio file
+        if (userInteracted) {
+            if (!audioWorkerStarted) {
+                audioWorker.postMessage({url: `${SERVER_BASE_URL}`, token});
+            }
+        }
+    } else {
+        console.error('Your browser doesn\'t support Web Workers.');
+    }
+}
+
+function makeMove(move) {
+  if (moveWorker) {
+    moveWorker.postMessage({ url: `${SERVER_BASE_URL}/move`, token, move });
+  } else {
+    console.error('MoveWorker is not initialised yet');
+  }
+}
+
+startGame().then(initializeWorkers);
+
 const board = new Board()
 
 function mvAll() {
@@ -220,6 +294,7 @@ function mvAll() {
 
     if (imove < moves.length) {
         chess.move(moves[imove]);
+        makeMove(moves[imove])
         imove++;
     }
 
