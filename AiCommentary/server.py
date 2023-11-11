@@ -4,12 +4,20 @@ import subprocess
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, File, Response # type: ignore
 from fastapi.responses import FileResponse # type: ignore
+from fastapi.middleware.cors import CORSMiddleware #type: ignore
 from pydantic import BaseModel
 
 app = FastAPI()
 
-MAX_AUDIOS_PER_SESSION = 5
-DEFAULT_AUDIO_PATH = Path("./default_background_music")
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class StartGameResponse(BaseModel):
     token: str
@@ -22,7 +30,6 @@ class Game:
     def __init__(self, token: str) -> None:
         print(f"Initialising game. Token={token}")
         self.token = token
-        self.audio_counter = 0
         self.process = subprocess.Popen(
             ["./run_worker.sh"],
             stdin=subprocess.PIPE,
@@ -37,11 +44,7 @@ class Game:
         self.process.stdin.flush()
 
     def get_audio(self) -> Path:
-        self.audio_counter += 1
-        print(f"Requesting audio. Token={self.token}. Request counter = {self.audio_counter}")
-        if self.audio_counter > MAX_AUDIOS_PER_SESSION:
-            print(f"Audio counter exceeded limit {MAX_AUDIOS_PER_SESSION}. Returning default audio")
-            return DEFAULT_AUDIO_PATH
+        print(f"Requesting audio. Token={self.token}")
         assert(self.process.stdin is not None)
         self.process.stdin.write(f"audio\n")
         self.process.stdin.flush()
@@ -75,4 +78,4 @@ def get_audio(token: str):
         raise HTTPException(status_code=404, detail="Game not found")
 
     file_path = games[token].get_audio()
-    return FileResponse(file_path, media_type="audio/mpeg", filename="audio.mp3")
+    return FileResponse(file_path, media_type="audio/mpeg")

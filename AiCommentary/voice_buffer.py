@@ -6,11 +6,15 @@ import commentary
 import voice
 from move import Move
 
+MAX_COMMENTARY_REQUESTS = 1
+DEFAULT_AUDIO_PATH = Path("./default_background_music.mp3")
+
 class VoiceBuffer:
     def __init__(self) -> None:
         commentary.init_game()
         self.audio_buffer: list[Path] = []
         self.mutex = Lock()
+        self.commentary_requests = 0
 
     def tick(self) -> None:
         with self.mutex:
@@ -32,6 +36,11 @@ class VoiceBuffer:
         
 
     def _add_new_commentary(self, move: Optional[Move]):
+        self.commentary_requests += 1
+        if self.commentary_requests > MAX_COMMENTARY_REQUESTS:
+            print(f"Commentary requests exceeded limit {MAX_COMMENTARY_REQUESTS}. Returning default audio")
+            self.audio_buffer.append(DEFAULT_AUDIO_PATH)
+            return
         # print(f"Requesting commentary for move: {move}. Current buffer size={len(self.audio_buffer)}", flush=True)
         comment = commentary.get_response(move)
         # print(f"Commentary: {comment}", flush=True)
