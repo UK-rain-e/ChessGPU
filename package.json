@@ -1,0 +1,15 @@
+{
+  "name": "chessgpu",
+  "version": "1.0.0",
+  "description": "Awesome chess gaming experience.",
+  "main": "index.js",
+  "scripts": {
+    "run": "npx serve"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chess": "^1.2.1",
+    "serve": "^14.2.1"
+  }
+}

@@ -1,0 +1,2856 @@
+{
+    "application_properties": {
+        "i18nAssets": [],
+        "useTouch": true,
+        "layerOrder": [
+            {
+                "layer": 0,
+                "enabled": true,
+                "transparent": false
+            },
+            {
+                "layer": 1,
+                "enabled": true,
+                "transparent": false
+            },
+            {
+                "layer": 2,
+                "enabled": true,
+                "transparent": false
+            },
+            {
+                "layer": 0,
+                "enabled": true,
+                "transparent": true
+            },
+            {
+                "layer": 3,
+                "enabled": true,
+                "transparent": false
+            },
+            {
+                "layer": 3,
+                "enabled": true,
+                "transparent": true
+            },
+            {
+                "layer": 4,
+                "enabled": true,
+                "transparent": true
+            }
+        ],
+        "externalScripts": [],
+        "height": 720,
+        "vr": false,
+        "useModelV2": false,
+        "antiAlias": true,
+        "layers": {
+            "0": {
+                "transparentSortMode": 3,
+                "opaqueSortMode": 2,
+                "name": "World"
+            },
+            "1": {
+                "transparentSortMode": 3,
+                "opaqueSortMode": 2,
+                "name": "Depth"
+            },
+            "2": {
+                "transparentSortMode": 3,
+                "opaqueSortMode": 0,
+                "name": "Skybox"
+            },
+            "3": {
+                "transparentSortMode": 3,
+                "opaqueSortMode": 0,
+                "name": "Immediate"
+            },
+            "4": {
+                "transparentSortMode": 1,
+                "opaqueSortMode": 1,
+                "name": "UI"
+            }
+        },
+        "width": 1280,
+        "useDevicePixelRatio": false,
+        "useKeyboard": true,
+        "maxAssetRetries": 5,
+        "powerPreference": "high-performance",
+        "batchGroups": [],
+        "preserveDrawingBuffer": false,
+        "useLegacyScripts": false,
+        "enableSharedArrayBuffer": false,
+        "fillMode": "FILL_WINDOW",
+        "scripts": [
+            156899320
+        ],
+        "useMouse": true,
+        "use3dPhysics": false,
+        "transparentCanvas": false,
+        "resolutionMode": "AUTO",
+        "loadingScreenScript": null,
+        "preferWebGl2": true,
+        "useGamepads": false,
+        "libraries": []
+    },
+    "scenes": [
+        {
+            "name": "Untitled",
+            "url": "1897802.json"
+        }
+    ],
+    "assets": {
+        "156898835": {
+            "name": "Material.001",
+            "type": "material",
+            "file": null,
+            "data": {
+                "shader": "blinn",
+                "blendType": 3,
+                "cull": 1,
+                "useLighting": true,
+                "twoSidedLighting": false,
+                "useMetalness": false,
+                "useMetalnessSpecularColor": false,
+                "depthWrite": true,
+                "emissiveTint": false,
+                "glossInvert": false,
+                "clearCoatGlossInvert": false,
+                "sheenGlossInvert": false,
+                "useDynamicRefraction": false,
+                "useSheen": false,
+                "diffuseTint": false,
+                "specularTint": false,
+                "sheenTint": false,
+                "useIridescence": false,
+                "metalness": 1,
+                "shininess": 42.2169,
+                "opacity": 1,
+                "bumpMapFactor": 0,
+                "reflectivity": 0,
+                "alphaTest": 0,
+                "clearCoat": 0,
+                "clearCoatGloss": 1,
+                "clearCoatBumpiness": 1,
+                "specularityFactor": 1,
+                "refractionIndex": 0.666667,
+                "refraction": 0,
+                "sheenGloss": 0,
+                "thickness": 0,
+                "attenuationDistance": 0,
+                "emissiveIntensity": 1,
+                "iridescence": 0,
+                "iridescenceRefractionIndex": 0.666667,
+                "iridescenceThicknessMin": 0,
+                "iridescenceThicknessMax": 0,
+                "ambient": [
+                    0,
+                    0,
+                    0
+                ],
+                "diffuse": [
+                    1,
+                    1,
+                    1
+                ],
+                "emissive": [
+                    0,
+                    0,
+                    0
+                ],
+                "specular": [
+                    0.25,
+                    0.25,
+                    0.25
+                ],
+                "sheen": [
+                    1,
+                    1,
+                    1
+                ],
+                "attenuation": [
+                    1,
+                    1,
+                    1
+                ],
+                "ambientTint": false,
+                "aoMap": null,
+                "aoMapChannel": "r",
+                "aoMapUv": 0,
+                "aoMapTiling": [
+                    1,
+                    1
+                ],
+                "aoMapOffset": [
+                    0,
+                    0
+                ],
+                "aoMapRotation": 0,
+                "diffuseMap": null,
+                "diffuseMapChannel": "rgb",
+                "diffuseMapUv": 0,
+                "diffuseMapTiling": [
+                    1,
+                    1
+                ],
+                "diffuseMapOffset": [
+                    0,
+                    0
+                ],
+                "diffuseMapRotation": 0,
+                "specularMap": null,
+                "specularMapChannel": "rgb",
+                "specularMapUv": 0,
+                "specularMapTiling": [
+                    1,
+                    1
+                ],
+                "specularMapOffset": [
+                    0,
+                    0
+                ],
+                "specularMapRotation": 0,
+                "specularAntialias": true,
+                "occludeSpecular": 1,
+                "specularityFactorMap": null,
+                "specularityFactorMapChannel": "r",
+                "specularityFactorMapUv": 0,
+                "specularityFactorMapTiling": [
+                    1,
+                    1
+                ],
+                "specularityFactorMapOffset": [
+                    0,
+                    0
+                ],
+                "specularityFactorMapRotation": 0,
+                "enableGGXSpecular": false,
+                "anisotropy": 0,
+                "metalnessMap": null,
+                "metalnessMapChannel": "r",
+                "metalnessMapUv": 0,
+                "metalnessMapTiling": [
+                    1,
+                    1
+                ],
+                "metalnessMapOffset": [
+                    0,
+                    0
+                ],
+                "metalnessMapRotation": 0,
+                "conserveEnergy": true,
+                "glossMap": null,
+                "glossMapChannel": "r",
+                "glossMapUv": 0,
+                "glossMapTiling": [
+                    1,
+                    1
+                ],
+                "glossMapOffset": [
+                    0,
+                    0
+                ],
+                "glossMapRotation": 0,
+                "clearCoatMap": null,
+                "clearCoatMapChannel": "r",
+                "clearCoatMapUv": 0,
+                "clearCoatMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatMapRotation": 0,
+                "clearCoatVertexColor": false,
+                "clearCoatVertexColorChannel": "r",
+                "clearCoatGlossMap": null,
+                "clearCoatGlossMapChannel": "r",
+                "clearCoatGlossMapUv": 0,
+                "clearCoatGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatGlossMapRotation": 0,
+                "clearCoatGlossVertexColor": false,
+                "clearCoatGlossVertexColorChannel": "r",
+                "clearCoatNormalMap": null,
+                "clearCoatNormalMapUv": 0,
+                "clearCoatNormalMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatNormalMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatNormalMapRotation": 0,
+                "sheenMap": null,
+                "sheenMapChannel": "rgb",
+                "sheenMapUv": 0,
+                "sheenMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenMapRotation": 0,
+                "sheenGlossMap": null,
+                "sheenGlossMapChannel": "r",
+                "sheenGlossMapUv": 0,
+                "sheenGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenGlossMapRotation": 0,
+                "fresnelModel": 0,
+                "emissiveMap": null,
+                "emissiveMapChannel": "rgb",
+                "emissiveMapUv": 0,
+                "emissiveMapTiling": [
+                    1,
+                    1
+                ],
+                "emissiveMapOffset": [
+                    0,
+                    0
+                ],
+                "emissiveMapRotation": 0,
+                "normalMap": null,
+                "normalMapUv": 0,
+                "normalMapTiling": [
+                    1,
+                    1
+                ],
+                "normalMapOffset": [
+                    0,
+                    0
+                ],
+                "normalMapRotation": 0,
+                "refractionMap": null,
+                "refractionMapChannel": "r",
+                "refractionMapUv": 0,
+                "refractionMapTiling": [
+                    1,
+                    1
+                ],
+                "refractionMapOffset": [
+                    0,
+                    0
+                ],
+                "refractionMapRotation": 0,
+                "refractionVertexColor": false,
+                "refractionVertexColorChannel": "r",
+                "thicknessMap": null,
+                "thicknessMapChannel": "r",
+                "thicknessMapUv": 0,
+                "thicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "thicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "thicknessMapRotation": 0,
+                "thicknessVertexColor": false,
+                "thicknessVertexColorChannel": "r",
+                "iridescenceMap": null,
+                "iridescenceMapChannel": "r",
+                "iridescenceMapUv": 0,
+                "iridescenceMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceMapRotation": 0,
+                "iridescenceThicknessMap": null,
+                "iridescenceThicknessMapChannel": "r",
+                "iridescenceThicknessMapUv": 0,
+                "iridescenceThicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceThicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceThicknessMapRotation": 0,
+                "heightMap": null,
+                "heightMapChannel": "r",
+                "heightMapUv": 0,
+                "heightMapTiling": [
+                    1,
+                    1
+                ],
+                "heightMapOffset": [
+                    0,
+                    0
+                ],
+                "heightMapRotation": 0,
+                "heightMapFactor": 1,
+                "alphaToCoverage": false,
+                "alphaFade": 1,
+                "opacityMap": null,
+                "opacityMapChannel": "r",
+                "opacityMapUv": 0,
+                "opacityMapTiling": [
+                    1,
+                    1
+                ],
+                "opacityMapOffset": [
+                    0,
+                    0
+                ],
+                "opacityMapRotation": 0,
+                "opacityFadesSpecular": true,
+                "sphereMap": null,
+                "cubeMap": null,
+                "cubeMapProjection": 0,
+                "cubeMapProjectionBox": {
+                    "center": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "halfExtents": [
+                        0.5,
+                        0.5,
+                        0.5
+                    ]
+                },
+                "lightMap": null,
+                "lightMapChannel": "rgb",
+                "lightMapUv": 0,
+                "lightMapTiling": [
+                    1,
+                    1
+                ],
+                "lightMapOffset": [
+                    0,
+                    0
+                ],
+                "lightMapRotation": 0,
+                "depthTest": true,
+                "useFog": true,
+                "useSkybox": true,
+                "useGammaTonemap": true
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898835"
+        },
+        "156898836": {
+            "name": "Material.002",
+            "type": "material",
+            "file": null,
+            "data": {
+                "shader": "blinn",
+                "blendType": 3,
+                "cull": 1,
+                "useLighting": true,
+                "twoSidedLighting": false,
+                "useMetalness": false,
+                "useMetalnessSpecularColor": false,
+                "depthWrite": true,
+                "emissiveTint": false,
+                "glossInvert": false,
+                "clearCoatGlossInvert": false,
+                "sheenGlossInvert": false,
+                "useDynamicRefraction": false,
+                "useSheen": false,
+                "diffuseTint": false,
+                "specularTint": false,
+                "sheenTint": false,
+                "useIridescence": false,
+                "metalness": 1,
+                "shininess": 10.1162,
+                "opacity": 1,
+                "bumpMapFactor": 0,
+                "reflectivity": 0,
+                "alphaTest": 0,
+                "clearCoat": 0,
+                "clearCoatGloss": 1,
+                "clearCoatBumpiness": 1,
+                "specularityFactor": 1,
+                "refractionIndex": 0.666667,
+                "refraction": 0,
+                "sheenGloss": 0,
+                "thickness": 0,
+                "attenuationDistance": 0,
+                "emissiveIntensity": 1,
+                "iridescence": 0,
+                "iridescenceRefractionIndex": 0.666667,
+                "iridescenceThicknessMin": 0,
+                "iridescenceThicknessMax": 0,
+                "ambient": [
+                    0,
+                    0,
+                    0
+                ],
+                "diffuse": [
+                    0.000515414,
+                    0.000515414,
+                    0.000515414
+                ],
+                "emissive": [
+                    0,
+                    0,
+                    0
+                ],
+                "specular": [
+                    0.000128853,
+                    0.000128853,
+                    0.000128853
+                ],
+                "sheen": [
+                    1,
+                    1,
+                    1
+                ],
+                "attenuation": [
+                    1,
+                    1,
+                    1
+                ],
+                "ambientTint": false,
+                "aoMap": null,
+                "aoMapChannel": "r",
+                "aoMapUv": 0,
+                "aoMapTiling": [
+                    1,
+                    1
+                ],
+                "aoMapOffset": [
+                    0,
+                    0
+                ],
+                "aoMapRotation": 0,
+                "diffuseMap": null,
+                "diffuseMapChannel": "rgb",
+                "diffuseMapUv": 0,
+                "diffuseMapTiling": [
+                    1,
+                    1
+                ],
+                "diffuseMapOffset": [
+                    0,
+                    0
+                ],
+                "diffuseMapRotation": 0,
+                "specularMap": null,
+                "specularMapChannel": "rgb",
+                "specularMapUv": 0,
+                "specularMapTiling": [
+                    1,
+                    1
+                ],
+                "specularMapOffset": [
+                    0,
+                    0
+                ],
+                "specularMapRotation": 0,
+                "specularAntialias": true,
+                "occludeSpecular": 1,
+                "specularityFactorMap": null,
+                "specularityFactorMapChannel": "r",
+                "specularityFactorMapUv": 0,
+                "specularityFactorMapTiling": [
+                    1,
+                    1
+                ],
+                "specularityFactorMapOffset": [
+                    0,
+                    0
+                ],
+                "specularityFactorMapRotation": 0,
+                "enableGGXSpecular": false,
+                "anisotropy": 0,
+                "metalnessMap": null,
+                "metalnessMapChannel": "r",
+                "metalnessMapUv": 0,
+                "metalnessMapTiling": [
+                    1,
+                    1
+                ],
+                "metalnessMapOffset": [
+                    0,
+                    0
+                ],
+                "metalnessMapRotation": 0,
+                "conserveEnergy": true,
+                "glossMap": null,
+                "glossMapChannel": "r",
+                "glossMapUv": 0,
+                "glossMapTiling": [
+                    1,
+                    1
+                ],
+                "glossMapOffset": [
+                    0,
+                    0
+                ],
+                "glossMapRotation": 0,
+                "clearCoatMap": null,
+                "clearCoatMapChannel": "r",
+                "clearCoatMapUv": 0,
+                "clearCoatMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatMapRotation": 0,
+                "clearCoatVertexColor": false,
+                "clearCoatVertexColorChannel": "r",
+                "clearCoatGlossMap": null,
+                "clearCoatGlossMapChannel": "r",
+                "clearCoatGlossMapUv": 0,
+                "clearCoatGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatGlossMapRotation": 0,
+                "clearCoatGlossVertexColor": false,
+                "clearCoatGlossVertexColorChannel": "r",
+                "clearCoatNormalMap": null,
+                "clearCoatNormalMapUv": 0,
+                "clearCoatNormalMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatNormalMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatNormalMapRotation": 0,
+                "sheenMap": null,
+                "sheenMapChannel": "rgb",
+                "sheenMapUv": 0,
+                "sheenMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenMapRotation": 0,
+                "sheenGlossMap": null,
+                "sheenGlossMapChannel": "r",
+                "sheenGlossMapUv": 0,
+                "sheenGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenGlossMapRotation": 0,
+                "fresnelModel": 0,
+                "emissiveMap": null,
+                "emissiveMapChannel": "rgb",
+                "emissiveMapUv": 0,
+                "emissiveMapTiling": [
+                    1,
+                    1
+                ],
+                "emissiveMapOffset": [
+                    0,
+                    0
+                ],
+                "emissiveMapRotation": 0,
+                "normalMap": null,
+                "normalMapUv": 0,
+                "normalMapTiling": [
+                    1,
+                    1
+                ],
+                "normalMapOffset": [
+                    0,
+                    0
+                ],
+                "normalMapRotation": 0,
+                "refractionMap": null,
+                "refractionMapChannel": "r",
+                "refractionMapUv": 0,
+                "refractionMapTiling": [
+                    1,
+                    1
+                ],
+                "refractionMapOffset": [
+                    0,
+                    0
+                ],
+                "refractionMapRotation": 0,
+                "refractionVertexColor": false,
+                "refractionVertexColorChannel": "r",
+                "thicknessMap": null,
+                "thicknessMapChannel": "r",
+                "thicknessMapUv": 0,
+                "thicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "thicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "thicknessMapRotation": 0,
+                "thicknessVertexColor": false,
+                "thicknessVertexColorChannel": "r",
+                "iridescenceMap": null,
+                "iridescenceMapChannel": "r",
+                "iridescenceMapUv": 0,
+                "iridescenceMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceMapRotation": 0,
+                "iridescenceThicknessMap": null,
+                "iridescenceThicknessMapChannel": "r",
+                "iridescenceThicknessMapUv": 0,
+                "iridescenceThicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceThicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceThicknessMapRotation": 0,
+                "heightMap": null,
+                "heightMapChannel": "r",
+                "heightMapUv": 0,
+                "heightMapTiling": [
+                    1,
+                    1
+                ],
+                "heightMapOffset": [
+                    0,
+                    0
+                ],
+                "heightMapRotation": 0,
+                "heightMapFactor": 1,
+                "alphaToCoverage": false,
+                "alphaFade": 1,
+                "opacityMap": null,
+                "opacityMapChannel": "r",
+                "opacityMapUv": 0,
+                "opacityMapTiling": [
+                    1,
+                    1
+                ],
+                "opacityMapOffset": [
+                    0,
+                    0
+                ],
+                "opacityMapRotation": 0,
+                "opacityFadesSpecular": true,
+                "sphereMap": null,
+                "cubeMap": null,
+                "cubeMapProjection": 0,
+                "cubeMapProjectionBox": {
+                    "center": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "halfExtents": [
+                        0.5,
+                        0.5,
+                        0.5
+                    ]
+                },
+                "lightMap": null,
+                "lightMapChannel": "rgb",
+                "lightMapUv": 0,
+                "lightMapTiling": [
+                    1,
+                    1
+                ],
+                "lightMapOffset": [
+                    0,
+                    0
+                ],
+                "lightMapRotation": 0,
+                "depthTest": true,
+                "useFog": true,
+                "useSkybox": true,
+                "useGammaTonemap": true
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898836"
+        },
+        "156898837": {
+            "name": "bishop chese pc all material.glb",
+            "type": "container",
+            "file": {
+                "hash": "abe784c50ee020c64bff8305f2ef8b94",
+                "size": 6376368,
+                "filename": "bishop chese pc all material.glb",
+                "url": "files/assets/156898837/1/bishop%20chese%20pc%20all%20material.glb"
+            },
+            "data": {},
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898837"
+        },
+        "156898838": {
+            "name": "ChessBoardBlack",
+            "type": "material",
+            "file": null,
+            "data": {
+                "shader": "blinn",
+                "blendType": 3,
+                "cull": 1,
+                "useLighting": true,
+                "twoSidedLighting": false,
+                "useMetalness": false,
+                "useMetalnessSpecularColor": false,
+                "depthWrite": true,
+                "emissiveTint": false,
+                "glossInvert": false,
+                "clearCoatGlossInvert": false,
+                "sheenGlossInvert": false,
+                "useDynamicRefraction": false,
+                "useSheen": false,
+                "diffuseTint": false,
+                "specularTint": false,
+                "sheenTint": false,
+                "useIridescence": false,
+                "metalness": 1,
+                "shininess": 66.09,
+                "opacity": 1,
+                "bumpMapFactor": 0,
+                "reflectivity": 0,
+                "alphaTest": 0,
+                "clearCoat": 0,
+                "clearCoatGloss": 1,
+                "clearCoatBumpiness": 1,
+                "specularityFactor": 1,
+                "refractionIndex": 0.666667,
+                "refraction": 0,
+                "sheenGloss": 0,
+                "thickness": 0,
+                "attenuationDistance": 0,
+                "emissiveIntensity": 0,
+                "iridescence": 0,
+                "iridescenceRefractionIndex": 0.666667,
+                "iridescenceThicknessMin": 0,
+                "iridescenceThicknessMax": 0,
+                "ambient": [
+                    0,
+                    0,
+                    0
+                ],
+                "diffuse": [
+                    0.1803921568627451,
+                    0.14901960784313725,
+                    0.14901960784313725
+                ],
+                "emissive": [
+                    0,
+                    0,
+                    0
+                ],
+                "specular": [
+                    0,
+                    0,
+                    0
+                ],
+                "sheen": [
+                    1,
+                    1,
+                    1
+                ],
+                "attenuation": [
+                    1,
+                    1,
+                    1
+                ],
+                "ambientTint": false,
+                "aoMap": null,
+                "aoMapChannel": "r",
+                "aoMapUv": 0,
+                "aoMapTiling": [
+                    1,
+                    1
+                ],
+                "aoMapOffset": [
+                    0,
+                    0
+                ],
+                "aoMapRotation": 0,
+                "diffuseMap": null,
+                "diffuseMapChannel": "rgb",
+                "diffuseMapUv": 0,
+                "diffuseMapTiling": [
+                    1,
+                    1
+                ],
+                "diffuseMapOffset": [
+                    0,
+                    0
+                ],
+                "diffuseMapRotation": 0,
+                "specularMap": null,
+                "specularMapChannel": "rgb",
+                "specularMapUv": 0,
+                "specularMapTiling": [
+                    1,
+                    1
+                ],
+                "specularMapOffset": [
+                    0,
+                    0
+                ],
+                "specularMapRotation": 0,
+                "specularAntialias": true,
+                "occludeSpecular": 1,
+                "specularityFactorMap": null,
+                "specularityFactorMapChannel": "r",
+                "specularityFactorMapUv": 0,
+                "specularityFactorMapTiling": [
+                    1,
+                    1
+                ],
+                "specularityFactorMapOffset": [
+                    0,
+                    0
+                ],
+                "specularityFactorMapRotation": 0,
+                "enableGGXSpecular": false,
+                "anisotropy": 0,
+                "metalnessMap": null,
+                "metalnessMapChannel": "r",
+                "metalnessMapUv": 0,
+                "metalnessMapTiling": [
+                    1,
+                    1
+                ],
+                "metalnessMapOffset": [
+                    0,
+                    0
+                ],
+                "metalnessMapRotation": 0,
+                "conserveEnergy": true,
+                "glossMap": null,
+                "glossMapChannel": "r",
+                "glossMapUv": 0,
+                "glossMapTiling": [
+                    1,
+                    1
+                ],
+                "glossMapOffset": [
+                    0,
+                    0
+                ],
+                "glossMapRotation": 0,
+                "clearCoatMap": null,
+                "clearCoatMapChannel": "r",
+                "clearCoatMapUv": 0,
+                "clearCoatMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatMapRotation": 0,
+                "clearCoatVertexColor": false,
+                "clearCoatVertexColorChannel": "r",
+                "clearCoatGlossMap": null,
+                "clearCoatGlossMapChannel": "r",
+                "clearCoatGlossMapUv": 0,
+                "clearCoatGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatGlossMapRotation": 0,
+                "clearCoatGlossVertexColor": false,
+                "clearCoatGlossVertexColorChannel": "r",
+                "clearCoatNormalMap": null,
+                "clearCoatNormalMapUv": 0,
+                "clearCoatNormalMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatNormalMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatNormalMapRotation": 0,
+                "sheenMap": null,
+                "sheenMapChannel": "rgb",
+                "sheenMapUv": 0,
+                "sheenMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenMapRotation": 0,
+                "sheenGlossMap": null,
+                "sheenGlossMapChannel": "r",
+                "sheenGlossMapUv": 0,
+                "sheenGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenGlossMapRotation": 0,
+                "fresnelModel": 0,
+                "emissiveMap": null,
+                "emissiveMapChannel": "rgb",
+                "emissiveMapUv": 0,
+                "emissiveMapTiling": [
+                    1,
+                    1
+                ],
+                "emissiveMapOffset": [
+                    0,
+                    0
+                ],
+                "emissiveMapRotation": 0,
+                "normalMap": null,
+                "normalMapUv": 0,
+                "normalMapTiling": [
+                    1,
+                    1
+                ],
+                "normalMapOffset": [
+                    0,
+                    0
+                ],
+                "normalMapRotation": 0,
+                "refractionMap": null,
+                "refractionMapChannel": "r",
+                "refractionMapUv": 0,
+                "refractionMapTiling": [
+                    1,
+                    1
+                ],
+                "refractionMapOffset": [
+                    0,
+                    0
+                ],
+                "refractionMapRotation": 0,
+                "refractionVertexColor": false,
+                "refractionVertexColorChannel": "r",
+                "thicknessMap": null,
+                "thicknessMapChannel": "r",
+                "thicknessMapUv": 0,
+                "thicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "thicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "thicknessMapRotation": 0,
+                "thicknessVertexColor": false,
+                "thicknessVertexColorChannel": "r",
+                "iridescenceMap": null,
+                "iridescenceMapChannel": "r",
+                "iridescenceMapUv": 0,
+                "iridescenceMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceMapRotation": 0,
+                "iridescenceThicknessMap": null,
+                "iridescenceThicknessMapChannel": "r",
+                "iridescenceThicknessMapUv": 0,
+                "iridescenceThicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceThicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceThicknessMapRotation": 0,
+                "heightMap": null,
+                "heightMapChannel": "r",
+                "heightMapUv": 0,
+                "heightMapTiling": [
+                    1,
+                    1
+                ],
+                "heightMapOffset": [
+                    0,
+                    0
+                ],
+                "heightMapRotation": 0,
+                "heightMapFactor": 1,
+                "alphaToCoverage": false,
+                "alphaFade": 1,
+                "opacityMap": null,
+                "opacityMapChannel": "r",
+                "opacityMapUv": 0,
+                "opacityMapTiling": [
+                    1,
+                    1
+                ],
+                "opacityMapOffset": [
+                    0,
+                    0
+                ],
+                "opacityMapRotation": 0,
+                "opacityFadesSpecular": true,
+                "sphereMap": null,
+                "cubeMap": null,
+                "cubeMapProjection": 0,
+                "cubeMapProjectionBox": {
+                    "center": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "halfExtents": [
+                        0.5,
+                        0.5,
+                        0.5
+                    ]
+                },
+                "lightMap": null,
+                "lightMapChannel": "rgb",
+                "lightMapUv": 0,
+                "lightMapTiling": [
+                    1,
+                    1
+                ],
+                "lightMapOffset": [
+                    0,
+                    0
+                ],
+                "lightMapRotation": 0,
+                "depthTest": true,
+                "useFog": true,
+                "useSkybox": true,
+                "useGammaTonemap": true
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898838"
+        },
+        "156898839": {
+            "name": "Sphere.003",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 0
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898839"
+        },
+        "156898840": {
+            "name": "Plane",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 1
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898840"
+        },
+        "156898841": {
+            "name": "Circle.003",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 2
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898841"
+        },
+        "156898842": {
+            "name": "Sphere.006",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 3
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898842"
+        },
+        "156898843": {
+            "name": "Circle.004",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 4
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898843"
+        },
+        "156898844": {
+            "name": "Sphere.007",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 5
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898844"
+        },
+        "156898845": {
+            "name": "Sphere.008",
+            "type": "render",
+            "file": null,
+            "data": {
+                "containerAsset": 156898837,
+                "renderIndex": 6
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898845"
+        },
+        "156898846": {
+            "name": "bishop chese pc all material",
+            "type": "template",
+            "file": null,
+            "data": {
+                "entities": {
+                    "77a9ddb1-d7ba-442c-853a-ae697433f55a": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [
+                            "f74de0e0-c6eb-4502-8c8d-be1a616002f1",
+                            "637547d0-2658-47e7-bc2a-86a5a9e48ef2",
+                            "8e4dd329-fab6-4a58-a4e4-84b7db63628b",
+                            "085e49c1-9593-4e53-b42f-cc1785496adf",
+                            "3d0c0d1c-69fc-4289-a943-e5c2719273f7",
+                            "1b1d0061-af4a-46ca-abf4-ab500c69ca0e",
+                            "533c119f-fdff-467e-9835-31d87083d71b",
+                            "6567b146-af16-4a06-87ae-5f557ec0f92c"
+                        ],
+                        "position": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            0.01,
+                            0.01,
+                            0.01
+                        ],
+                        "resource_id": "77a9ddb1-d7ba-442c-853a-ae697433f55a",
+                        "name": "RootNode",
+                        "components": {},
+                        "parent": null
+                    },
+                    "f74de0e0-c6eb-4502-8c8d-be1a616002f1": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -31.3467,
+                            8.31718,
+                            52.7799
+                        ],
+                        "rotation": [
+                            -9.38518,
+                            68.9043,
+                            -10.0461
+                        ],
+                        "scale": [
+                            100,
+                            100,
+                            100
+                        ],
+                        "resource_id": "f74de0e0-c6eb-4502-8c8d-be1a616002f1",
+                        "name": "Camera",
+                        "components": {
+                            "camera": {
+                                "enabled": true,
+                                "clearColorBuffer": true,
+                                "clearColor": [
+                                    0,
+                                    0,
+                                    0,
+                                    1
+                                ],
+                                "clearDepthBuffer": true,
+                                "renderSceneDepthMap": false,
+                                "renderSceneColorMap": false,
+                                "projection": 0,
+                                "fov": 45,
+                                "frustumCulling": true,
+                                "orthoHeight": 4,
+                                "nearClip": 0.1,
+                                "farClip": 100,
+                                "priority": 0,
+                                "rect": [
+                                    0,
+                                    0,
+                                    1,
+                                    1
+                                ],
+                                "layers": [
+                                    0,
+                                    1,
+                                    2,
+                                    3,
+                                    4
+                                ]
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "637547d0-2658-47e7-bc2a-86a5a9e48ef2": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -16.642,
+                            -0.0568446,
+                            4.88012
+                        ],
+                        "rotation": [
+                            -90,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            1.18561,
+                            1.18561,
+                            1.18561
+                        ],
+                        "resource_id": "637547d0-2658-47e7-bc2a-86a5a9e48ef2",
+                        "name": "Sphere",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898839,
+                                "materialAssets": [
+                                    156898835
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "8e4dd329-fab6-4a58-a4e4-84b7db63628b": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "rotation": [
+                            -90,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            100,
+                            100,
+                            100
+                        ],
+                        "resource_id": "8e4dd329-fab6-4a58-a4e4-84b7db63628b",
+                        "name": "Plane",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898840,
+                                "materialAssets": [
+                                    156898836
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "085e49c1-9593-4e53-b42f-cc1785496adf": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -11.298,
+                            -0.00766851,
+                            5.64793
+                        ],
+                        "rotation": [
+                            -90,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            100,
+                            100,
+                            100
+                        ],
+                        "resource_id": "085e49c1-9593-4e53-b42f-cc1785496adf",
+                        "name": "Circle",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898841,
+                                "materialAssets": [
+                                    156898838
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "3d0c0d1c-69fc-4289-a943-e5c2719273f7": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -21.7709,
+                            0,
+                            4.79417
+                        ],
+                        "rotation": [
+                            -90,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            1.18561,
+                            1.18561,
+                            1.18561
+                        ],
+                        "resource_id": "3d0c0d1c-69fc-4289-a943-e5c2719273f7",
+                        "name": "Sphere.001",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898842,
+                                "materialAssets": [
+                                    156898835
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "1b1d0061-af4a-46ca-abf4-ab500c69ca0e": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -9.95172,
+                            0.00782683,
+                            6.65314e-7
+                        ],
+                        "rotation": [
+                            -90,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            100,
+                            100,
+                            100
+                        ],
+                        "resource_id": "1b1d0061-af4a-46ca-abf4-ab500c69ca0e",
+                        "name": "Circle.001",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898843,
+                                "materialAssets": [
+                                    156898835
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "533c119f-fdff-467e-9835-31d87083d71b": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -6.01737,
+                            0,
+                            2.56127
+                        ],
+                        "rotation": [
+                            -90,
+                            0,
+                            0
+                        ],
+                        "scale": [
+                            1.18561,
+                            1.18561,
+                            1.18561
+                        ],
+                        "resource_id": "533c119f-fdff-467e-9835-31d87083d71b",
+                        "name": "Sphere.002",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898844,
+                                "materialAssets": [
+                                    156898835
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    },
+                    "6567b146-af16-4a06-87ae-5f557ec0f92c": {
+                        "enabled": true,
+                        "tags": [],
+                        "children": [],
+                        "position": [
+                            -4.53148,
+                            0,
+                            6.6987
+                        ],
+                        "rotation": [
+                            -90,
+                            25.4234,
+                            0.0000011767
+                        ],
+                        "scale": [
+                            1.18561,
+                            1.18561,
+                            1.18561
+                        ],
+                        "resource_id": "6567b146-af16-4a06-87ae-5f557ec0f92c",
+                        "name": "Sphere.003",
+                        "components": {
+                            "render": {
+                                "enabled": true,
+                                "type": "asset",
+                                "asset": 156898845,
+                                "materialAssets": [
+                                    156898835
+                                ],
+                                "layers": [
+                                    0
+                                ],
+                                "batchGroupId": null,
+                                "castShadows": true,
+                                "castShadowsLightmap": true,
+                                "receiveShadows": true,
+                                "lightmapped": false,
+                                "lightmapSizeMultiplier": 1,
+                                "castShadowsLightMap": true,
+                                "lightMapped": false,
+                                "lightMapSizeMultiplier": 1,
+                                "isStatic": false,
+                                "rootBone": null
+                            }
+                        },
+                        "parent": "77a9ddb1-d7ba-442c-853a-ae697433f55a"
+                    }
+                }
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898846"
+        },
+        "156898847": {
+            "name": "ChessBoardWhite",
+            "type": "material",
+            "file": null,
+            "data": {
+                "ambient": [
+                    0,
+                    0,
+                    0
+                ],
+                "ambientTint": false,
+                "aoMap": null,
+                "aoMapChannel": "r",
+                "aoMapUv": 0,
+                "aoMapTiling": [
+                    1,
+                    1
+                ],
+                "aoMapOffset": [
+                    0,
+                    0
+                ],
+                "aoMapRotation": 0,
+                "diffuse": [
+                    1,
+                    1,
+                    1
+                ],
+                "diffuseMap": null,
+                "diffuseMapChannel": "rgb",
+                "diffuseMapUv": 0,
+                "diffuseMapTiling": [
+                    1,
+                    1
+                ],
+                "diffuseMapOffset": [
+                    0,
+                    0
+                ],
+                "diffuseMapRotation": 0,
+                "specular": [
+                    0.23,
+                    0.23,
+                    0.23
+                ],
+                "specularMap": null,
+                "specularMapChannel": "rgb",
+                "specularMapUv": 0,
+                "specularMapTiling": [
+                    1,
+                    1
+                ],
+                "specularMapOffset": [
+                    0,
+                    0
+                ],
+                "specularMapRotation": 0,
+                "specularAntialias": true,
+                "occludeSpecular": 1,
+                "specularityFactor": 1,
+                "specularityFactorMap": null,
+                "specularityFactorMapChannel": "r",
+                "specularityFactorMapUv": 0,
+                "specularityFactorMapTiling": [
+                    1,
+                    1
+                ],
+                "specularityFactorMapOffset": [
+                    0,
+                    0
+                ],
+                "specularityFactorMapRotation": 0,
+                "enableGGXSpecular": false,
+                "anisotropy": 0,
+                "useMetalness": false,
+                "metalness": 1,
+                "metalnessMap": null,
+                "metalnessMapChannel": "r",
+                "metalnessMapUv": 0,
+                "metalnessMapTiling": [
+                    1,
+                    1
+                ],
+                "metalnessMapOffset": [
+                    0,
+                    0
+                ],
+                "metalnessMapRotation": 0,
+                "useMetalnessSpecularColor": false,
+                "conserveEnergy": true,
+                "shininess": 32,
+                "glossMap": null,
+                "glossMapChannel": "r",
+                "glossMapUv": 0,
+                "glossMapTiling": [
+                    1,
+                    1
+                ],
+                "glossMapOffset": [
+                    0,
+                    0
+                ],
+                "glossMapRotation": 0,
+                "glossInvert": false,
+                "clearCoat": 0,
+                "clearCoatMap": null,
+                "clearCoatMapChannel": "r",
+                "clearCoatMapUv": 0,
+                "clearCoatMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatMapRotation": 0,
+                "clearCoatVertexColor": false,
+                "clearCoatVertexColorChannel": "r",
+                "clearCoatGloss": 1,
+                "clearCoatGlossMap": null,
+                "clearCoatGlossMapChannel": "r",
+                "clearCoatGlossMapUv": 0,
+                "clearCoatGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatGlossMapRotation": 0,
+                "clearCoatGlossVertexColor": false,
+                "clearCoatGlossVertexColorChannel": "r",
+                "clearCoatBumpiness": 1,
+                "clearCoatGlossInvert": false,
+                "clearCoatNormalMap": null,
+                "clearCoatNormalMapUv": 0,
+                "clearCoatNormalMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatNormalMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatNormalMapRotation": 0,
+                "useSheen": false,
+                "sheen": [
+                    0,
+                    0,
+                    0
+                ],
+                "sheenMap": null,
+                "sheenMapChannel": "rgb",
+                "sheenMapUv": 0,
+                "sheenMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenMapRotation": 0,
+                "sheenGloss": 0,
+                "sheenGlossMap": null,
+                "sheenGlossMapChannel": "r",
+                "sheenGlossMapUv": 0,
+                "sheenGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenGlossMapRotation": 0,
+                "sheenGlossInvert": false,
+                "fresnelModel": 0,
+                "emissive": [
+                    0,
+                    0,
+                    0
+                ],
+                "emissiveMap": null,
+                "emissiveMapChannel": "rgb",
+                "emissiveMapUv": 0,
+                "emissiveMapTiling": [
+                    1,
+                    1
+                ],
+                "emissiveMapOffset": [
+                    0,
+                    0
+                ],
+                "emissiveMapRotation": 0,
+                "emissiveIntensity": 1,
+                "normalMap": null,
+                "normalMapUv": 0,
+                "normalMapTiling": [
+                    1,
+                    1
+                ],
+                "normalMapOffset": [
+                    0,
+                    0
+                ],
+                "normalMapRotation": 0,
+                "bumpMapFactor": 1,
+                "useDynamicRefraction": false,
+                "refraction": 0,
+                "refractionMap": null,
+                "refractionMapChannel": "r",
+                "refractionMapUv": 0,
+                "refractionMapTiling": [
+                    1,
+                    1
+                ],
+                "refractionMapOffset": [
+                    0,
+                    0
+                ],
+                "refractionMapRotation": 0,
+                "refractionVertexColor": false,
+                "refractionVertexColorChannel": "r",
+                "refractionIndex": 0.6666666666666666,
+                "thickness": 0,
+                "thicknessMap": null,
+                "thicknessMapChannel": "r",
+                "thicknessMapUv": 0,
+                "thicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "thicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "thicknessMapRotation": 0,
+                "thicknessVertexColor": false,
+                "thicknessVertexColorChannel": "r",
+                "attenuation": [
+                    1,
+                    1,
+                    1
+                ],
+                "attenuationDistance": 0,
+                "useIridescence": false,
+                "iridescence": 0,
+                "iridescenceMap": null,
+                "iridescenceMapChannel": "r",
+                "iridescenceMapUv": 0,
+                "iridescenceMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceMapRotation": 0,
+                "iridescenceRefractionIndex": 0.667,
+                "iridescenceThicknessMap": null,
+                "iridescenceThicknessMapChannel": "r",
+                "iridescenceThicknessMapUv": 0,
+                "iridescenceThicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceThicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceThicknessMapRotation": 0,
+                "iridescenceThicknessMin": 0,
+                "iridescenceThicknessMax": 0,
+                "heightMap": null,
+                "heightMapChannel": "r",
+                "heightMapUv": 0,
+                "heightMapTiling": [
+                    1,
+                    1
+                ],
+                "heightMapOffset": [
+                    0,
+                    0
+                ],
+                "heightMapRotation": 0,
+                "heightMapFactor": 1,
+                "alphaToCoverage": false,
+                "alphaTest": 0,
+                "alphaFade": 1,
+                "opacity": 1,
+                "opacityMap": null,
+                "opacityMapChannel": "r",
+                "opacityMapUv": 0,
+                "opacityMapTiling": [
+                    1,
+                    1
+                ],
+                "opacityMapOffset": [
+                    0,
+                    0
+                ],
+                "opacityMapRotation": 0,
+                "opacityFadesSpecular": true,
+                "reflectivity": 1,
+                "sphereMap": null,
+                "cubeMap": null,
+                "cubeMapProjection": 0,
+                "cubeMapProjectionBox": {
+                    "center": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "halfExtents": [
+                        0.5,
+                        0.5,
+                        0.5
+                    ]
+                },
+                "lightMap": null,
+                "lightMapChannel": "rgb",
+                "lightMapUv": 0,
+                "lightMapTiling": [
+                    1,
+                    1
+                ],
+                "lightMapOffset": [
+                    0,
+                    0
+                ],
+                "lightMapRotation": 0,
+                "depthTest": true,
+                "depthWrite": true,
+                "cull": 1,
+                "blendType": 3,
+                "shader": "blinn",
+                "useFog": true,
+                "useLighting": true,
+                "useSkybox": true,
+                "useGammaTonemap": true
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156898847"
+        },
+        "156899043": {
+            "name": "ChessPieceBlack",
+            "type": "material",
+            "file": null,
+            "data": {
+                "shader": "blinn",
+                "blendType": 3,
+                "cull": 1,
+                "useLighting": true,
+                "twoSidedLighting": false,
+                "useMetalness": false,
+                "useMetalnessSpecularColor": false,
+                "depthWrite": true,
+                "emissiveTint": false,
+                "glossInvert": false,
+                "clearCoatGlossInvert": false,
+                "sheenGlossInvert": false,
+                "useDynamicRefraction": false,
+                "useSheen": false,
+                "diffuseTint": false,
+                "specularTint": false,
+                "sheenTint": false,
+                "useIridescence": false,
+                "metalness": 1,
+                "shininess": 66.09,
+                "opacity": 1,
+                "bumpMapFactor": 0,
+                "reflectivity": 0,
+                "alphaTest": 0,
+                "clearCoat": 0,
+                "clearCoatGloss": 1,
+                "clearCoatBumpiness": 1,
+                "specularityFactor": 1,
+                "refractionIndex": 0.666667,
+                "refraction": 0,
+                "sheenGloss": 0,
+                "thickness": 0,
+                "attenuationDistance": 0,
+                "emissiveIntensity": 0,
+                "iridescence": 0,
+                "iridescenceRefractionIndex": 0.666667,
+                "iridescenceThicknessMin": 0,
+                "iridescenceThicknessMax": 0,
+                "ambient": [
+                    0,
+                    0,
+                    0
+                ],
+                "diffuse": [
+                    0.1803921568627451,
+                    0.14901960784313725,
+                    0.14901960784313725
+                ],
+                "emissive": [
+                    0,
+                    0,
+                    0
+                ],
+                "specular": [
+                    1,
+                    1,
+                    1
+                ],
+                "sheen": [
+                    1,
+                    1,
+                    1
+                ],
+                "attenuation": [
+                    1,
+                    1,
+                    1
+                ],
+                "ambientTint": false,
+                "aoMap": null,
+                "aoMapChannel": "r",
+                "aoMapUv": 0,
+                "aoMapTiling": [
+                    1,
+                    1
+                ],
+                "aoMapOffset": [
+                    0,
+                    0
+                ],
+                "aoMapRotation": 0,
+                "diffuseMap": null,
+                "diffuseMapChannel": "rgb",
+                "diffuseMapUv": 0,
+                "diffuseMapTiling": [
+                    1,
+                    1
+                ],
+                "diffuseMapOffset": [
+                    0,
+                    0
+                ],
+                "diffuseMapRotation": 0,
+                "specularMap": null,
+                "specularMapChannel": "rgb",
+                "specularMapUv": 0,
+                "specularMapTiling": [
+                    1,
+                    1
+                ],
+                "specularMapOffset": [
+                    0,
+                    0
+                ],
+                "specularMapRotation": 0,
+                "specularAntialias": true,
+                "occludeSpecular": 1,
+                "specularityFactorMap": null,
+                "specularityFactorMapChannel": "r",
+                "specularityFactorMapUv": 0,
+                "specularityFactorMapTiling": [
+                    1,
+                    1
+                ],
+                "specularityFactorMapOffset": [
+                    0,
+                    0
+                ],
+                "specularityFactorMapRotation": 0,
+                "enableGGXSpecular": false,
+                "anisotropy": 0,
+                "metalnessMap": null,
+                "metalnessMapChannel": "r",
+                "metalnessMapUv": 0,
+                "metalnessMapTiling": [
+                    1,
+                    1
+                ],
+                "metalnessMapOffset": [
+                    0,
+                    0
+                ],
+                "metalnessMapRotation": 0,
+                "conserveEnergy": true,
+                "glossMap": null,
+                "glossMapChannel": "r",
+                "glossMapUv": 0,
+                "glossMapTiling": [
+                    1,
+                    1
+                ],
+                "glossMapOffset": [
+                    0,
+                    0
+                ],
+                "glossMapRotation": 0,
+                "clearCoatMap": null,
+                "clearCoatMapChannel": "r",
+                "clearCoatMapUv": 0,
+                "clearCoatMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatMapRotation": 0,
+                "clearCoatVertexColor": false,
+                "clearCoatVertexColorChannel": "r",
+                "clearCoatGlossMap": null,
+                "clearCoatGlossMapChannel": "r",
+                "clearCoatGlossMapUv": 0,
+                "clearCoatGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatGlossMapRotation": 0,
+                "clearCoatGlossVertexColor": false,
+                "clearCoatGlossVertexColorChannel": "r",
+                "clearCoatNormalMap": null,
+                "clearCoatNormalMapUv": 0,
+                "clearCoatNormalMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatNormalMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatNormalMapRotation": 0,
+                "sheenMap": null,
+                "sheenMapChannel": "rgb",
+                "sheenMapUv": 0,
+                "sheenMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenMapRotation": 0,
+                "sheenGlossMap": null,
+                "sheenGlossMapChannel": "r",
+                "sheenGlossMapUv": 0,
+                "sheenGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenGlossMapRotation": 0,
+                "fresnelModel": 0,
+                "emissiveMap": null,
+                "emissiveMapChannel": "rgb",
+                "emissiveMapUv": 0,
+                "emissiveMapTiling": [
+                    1,
+                    1
+                ],
+                "emissiveMapOffset": [
+                    0,
+                    0
+                ],
+                "emissiveMapRotation": 0,
+                "normalMap": null,
+                "normalMapUv": 0,
+                "normalMapTiling": [
+                    1,
+                    1
+                ],
+                "normalMapOffset": [
+                    0,
+                    0
+                ],
+                "normalMapRotation": 0,
+                "refractionMap": null,
+                "refractionMapChannel": "r",
+                "refractionMapUv": 0,
+                "refractionMapTiling": [
+                    1,
+                    1
+                ],
+                "refractionMapOffset": [
+                    0,
+                    0
+                ],
+                "refractionMapRotation": 0,
+                "refractionVertexColor": false,
+                "refractionVertexColorChannel": "r",
+                "thicknessMap": null,
+                "thicknessMapChannel": "r",
+                "thicknessMapUv": 0,
+                "thicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "thicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "thicknessMapRotation": 0,
+                "thicknessVertexColor": false,
+                "thicknessVertexColorChannel": "r",
+                "iridescenceMap": null,
+                "iridescenceMapChannel": "r",
+                "iridescenceMapUv": 0,
+                "iridescenceMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceMapRotation": 0,
+                "iridescenceThicknessMap": null,
+                "iridescenceThicknessMapChannel": "r",
+                "iridescenceThicknessMapUv": 0,
+                "iridescenceThicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceThicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceThicknessMapRotation": 0,
+                "heightMap": null,
+                "heightMapChannel": "r",
+                "heightMapUv": 0,
+                "heightMapTiling": [
+                    1,
+                    1
+                ],
+                "heightMapOffset": [
+                    0,
+                    0
+                ],
+                "heightMapRotation": 0,
+                "heightMapFactor": 1,
+                "alphaToCoverage": false,
+                "alphaFade": 1,
+                "opacityMap": null,
+                "opacityMapChannel": "r",
+                "opacityMapUv": 0,
+                "opacityMapTiling": [
+                    1,
+                    1
+                ],
+                "opacityMapOffset": [
+                    0,
+                    0
+                ],
+                "opacityMapRotation": 0,
+                "opacityFadesSpecular": true,
+                "sphereMap": null,
+                "cubeMap": null,
+                "cubeMapProjection": 0,
+                "cubeMapProjectionBox": {
+                    "center": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "halfExtents": [
+                        0.5,
+                        0.5,
+                        0.5
+                    ]
+                },
+                "lightMap": null,
+                "lightMapChannel": "rgb",
+                "lightMapUv": 0,
+                "lightMapTiling": [
+                    1,
+                    1
+                ],
+                "lightMapOffset": [
+                    0,
+                    0
+                ],
+                "lightMapRotation": 0,
+                "depthTest": true,
+                "useFog": true,
+                "useSkybox": true,
+                "useGammaTonemap": true
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156899043"
+        },
+        "156899098": {
+            "name": "SuperSecretMaterial",
+            "type": "material",
+            "file": null,
+            "data": {
+                "ambient": [
+                    0,
+                    0,
+                    0
+                ],
+                "ambientTint": false,
+                "aoMap": null,
+                "aoMapChannel": "r",
+                "aoMapUv": 0,
+                "aoMapTiling": [
+                    1,
+                    1
+                ],
+                "aoMapOffset": [
+                    0,
+                    0
+                ],
+                "aoMapRotation": 0,
+                "diffuse": [
+                    1,
+                    1,
+                    1
+                ],
+                "diffuseMap": null,
+                "diffuseMapChannel": "rgb",
+                "diffuseMapUv": 0,
+                "diffuseMapTiling": [
+                    1,
+                    1
+                ],
+                "diffuseMapOffset": [
+                    0,
+                    0
+                ],
+                "diffuseMapRotation": 0,
+                "specular": [
+                    0.23,
+                    0.23,
+                    0.23
+                ],
+                "specularMap": null,
+                "specularMapChannel": "rgb",
+                "specularMapUv": 0,
+                "specularMapTiling": [
+                    1,
+                    1
+                ],
+                "specularMapOffset": [
+                    0,
+                    0
+                ],
+                "specularMapRotation": 0,
+                "specularAntialias": true,
+                "occludeSpecular": 1,
+                "specularityFactor": 1,
+                "specularityFactorMap": null,
+                "specularityFactorMapChannel": "r",
+                "specularityFactorMapUv": 0,
+                "specularityFactorMapTiling": [
+                    1,
+                    1
+                ],
+                "specularityFactorMapOffset": [
+                    0,
+                    0
+                ],
+                "specularityFactorMapRotation": 0,
+                "enableGGXSpecular": false,
+                "anisotropy": 0,
+                "useMetalness": false,
+                "metalness": 1,
+                "metalnessMap": null,
+                "metalnessMapChannel": "r",
+                "metalnessMapUv": 0,
+                "metalnessMapTiling": [
+                    1,
+                    1
+                ],
+                "metalnessMapOffset": [
+                    0,
+                    0
+                ],
+                "metalnessMapRotation": 0,
+                "useMetalnessSpecularColor": false,
+                "conserveEnergy": true,
+                "shininess": 32,
+                "glossMap": null,
+                "glossMapChannel": "r",
+                "glossMapUv": 0,
+                "glossMapTiling": [
+                    1,
+                    1
+                ],
+                "glossMapOffset": [
+                    0,
+                    0
+                ],
+                "glossMapRotation": 0,
+                "glossInvert": false,
+                "clearCoat": 0,
+                "clearCoatMap": null,
+                "clearCoatMapChannel": "r",
+                "clearCoatMapUv": 0,
+                "clearCoatMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatMapRotation": 0,
+                "clearCoatVertexColor": false,
+                "clearCoatVertexColorChannel": "r",
+                "clearCoatGloss": 1,
+                "clearCoatGlossMap": null,
+                "clearCoatGlossMapChannel": "r",
+                "clearCoatGlossMapUv": 0,
+                "clearCoatGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatGlossMapRotation": 0,
+                "clearCoatGlossVertexColor": false,
+                "clearCoatGlossVertexColorChannel": "r",
+                "clearCoatBumpiness": 1,
+                "clearCoatGlossInvert": false,
+                "clearCoatNormalMap": null,
+                "clearCoatNormalMapUv": 0,
+                "clearCoatNormalMapTiling": [
+                    1,
+                    1
+                ],
+                "clearCoatNormalMapOffset": [
+                    0,
+                    0
+                ],
+                "clearCoatNormalMapRotation": 0,
+                "useSheen": false,
+                "sheen": [
+                    0,
+                    0,
+                    0
+                ],
+                "sheenMap": null,
+                "sheenMapChannel": "rgb",
+                "sheenMapUv": 0,
+                "sheenMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenMapRotation": 0,
+                "sheenGloss": 0,
+                "sheenGlossMap": null,
+                "sheenGlossMapChannel": "r",
+                "sheenGlossMapUv": 0,
+                "sheenGlossMapTiling": [
+                    1,
+                    1
+                ],
+                "sheenGlossMapOffset": [
+                    0,
+                    0
+                ],
+                "sheenGlossMapRotation": 0,
+                "sheenGlossInvert": false,
+                "fresnelModel": 0,
+                "emissive": [
+                    0,
+                    0,
+                    0
+                ],
+                "emissiveMap": null,
+                "emissiveMapChannel": "rgb",
+                "emissiveMapUv": 0,
+                "emissiveMapTiling": [
+                    1,
+                    1
+                ],
+                "emissiveMapOffset": [
+                    0,
+                    0
+                ],
+                "emissiveMapRotation": 0,
+                "emissiveIntensity": 1,
+                "normalMap": null,
+                "normalMapUv": 0,
+                "normalMapTiling": [
+                    1,
+                    1
+                ],
+                "normalMapOffset": [
+                    0,
+                    0
+                ],
+                "normalMapRotation": 0,
+                "bumpMapFactor": 1,
+                "useDynamicRefraction": false,
+                "refraction": 0,
+                "refractionMap": null,
+                "refractionMapChannel": "r",
+                "refractionMapUv": 0,
+                "refractionMapTiling": [
+                    1,
+                    1
+                ],
+                "refractionMapOffset": [
+                    0,
+                    0
+                ],
+                "refractionMapRotation": 0,
+                "refractionVertexColor": false,
+                "refractionVertexColorChannel": "r",
+                "refractionIndex": 0.6666666666666666,
+                "thickness": 0,
+                "thicknessMap": null,
+                "thicknessMapChannel": "r",
+                "thicknessMapUv": 0,
+                "thicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "thicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "thicknessMapRotation": 0,
+                "thicknessVertexColor": false,
+                "thicknessVertexColorChannel": "r",
+                "attenuation": [
+                    1,
+                    1,
+                    1
+                ],
+                "attenuationDistance": 0,
+                "useIridescence": false,
+                "iridescence": 0,
+                "iridescenceMap": null,
+                "iridescenceMapChannel": "r",
+                "iridescenceMapUv": 0,
+                "iridescenceMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceMapRotation": 0,
+                "iridescenceRefractionIndex": 0.667,
+                "iridescenceThicknessMap": null,
+                "iridescenceThicknessMapChannel": "r",
+                "iridescenceThicknessMapUv": 0,
+                "iridescenceThicknessMapTiling": [
+                    1,
+                    1
+                ],
+                "iridescenceThicknessMapOffset": [
+                    0,
+                    0
+                ],
+                "iridescenceThicknessMapRotation": 0,
+                "iridescenceThicknessMin": 0,
+                "iridescenceThicknessMax": 0,
+                "heightMap": null,
+                "heightMapChannel": "r",
+                "heightMapUv": 0,
+                "heightMapTiling": [
+                    1,
+                    1
+                ],
+                "heightMapOffset": [
+                    0,
+                    0
+                ],
+                "heightMapRotation": 0,
+                "heightMapFactor": 1,
+                "alphaToCoverage": false,
+                "alphaTest": 0,
+                "alphaFade": 1,
+                "opacity": 1,
+                "opacityMap": null,
+                "opacityMapChannel": "r",
+                "opacityMapUv": 0,
+                "opacityMapTiling": [
+                    1,
+                    1
+                ],
+                "opacityMapOffset": [
+                    0,
+                    0
+                ],
+                "opacityMapRotation": 0,
+                "opacityFadesSpecular": true,
+                "reflectivity": 1,
+                "sphereMap": null,
+                "cubeMap": null,
+                "cubeMapProjection": 0,
+                "cubeMapProjectionBox": {
+                    "center": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "halfExtents": [
+                        0.5,
+                        0.5,
+                        0.5
+                    ]
+                },
+                "lightMap": null,
+                "lightMapChannel": "rgb",
+                "lightMapUv": 0,
+                "lightMapTiling": [
+                    1,
+                    1
+                ],
+                "lightMapOffset": [
+                    0,
+                    0
+                ],
+                "lightMapRotation": 0,
+                "depthTest": true,
+                "depthWrite": true,
+                "cull": 1,
+                "blendType": 3,
+                "shader": "blinn",
+                "useFog": true,
+                "useLighting": true,
+                "useSkybox": true,
+                "useGammaTonemap": true
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156899098"
+        },
+        "156899320": {
+            "name": "movement.js",
+            "type": "script",
+            "file": {
+                "filename": "__game-scripts.js",
+                "size": 903,
+                "hash": "da6abe41d2fcd7672e186eb0f86858e5",
+                "url": "__game-scripts.js"
+            },
+            "data": {
+                "scripts": {
+                    "movement": {
+                        "attributesOrder": [
+                            "speed"
+                        ],
+                        "attributes": {
+                            "speed": {
+                                "type": "number",
+                                "default": 0.1,
+                                "min": 0.05,
+                                "max": 0.5,
+                                "precision": 2,
+                                "description": "Controls the movement speed"
+                            }
+                        }
+                    }
+                },
+                "loading": false,
+                "loadingType": 0
+            },
+            "preload": true,
+            "tags": [],
+            "i18n": {},
+            "id": "156899320"
+        },
+        "156899325": {
+            "name": "ammo.js",
+            "type": "script",
+            "file": {
+                "filename": "ammo.js",
+                "size": 1895438,
+                "hash": "34480c72ed787337db20c105cb9ba69d",
+                "url": "files/assets/156899325/1/ammo.js"
+            },
+            "data": {
+                "order": 100,
+                "scripts": {},
+                "loadingType": 0
+            },
+            "preload": false,
+            "tags": [],
+            "i18n": {},
+            "id": "156899325"
+        },
+        "156899326": {
+            "name": "ammo.wasm.js",
+            "type": "script",
+            "file": {
+                "filename": "ammo.wasm.js",
+                "size": 391789,
+                "hash": "6b7ab3989e4f9f17c86e44380f9181c6",
+                "url": "files/assets/156899326/1/ammo.wasm.js"
+            },
+            "data": {
+                "order": 100,
+                "scripts": {},
+                "loadingType": 0
+            },
+            "preload": false,
+            "tags": [],
+            "i18n": {},
+            "id": "156899326"
+        },
+        "156899327": {
+            "name": "ammo.wasm.wasm",
+            "type": "wasm",
+            "file": {
+                "filename": "ammo.wasm.wasm",
+                "size": 659433,
+                "hash": "a6819ea71a53e67f1dfe3e42957c2971",
+                "url": "files/assets/156899327/1/ammo.wasm.wasm"
+            },
+            "data": {
+                "moduleName": "Ammo",
+                "glueScriptId": 156899326,
+                "fallbackScriptId": 156899325,
+                "loadingType": 0
+            },
+            "preload": false,
+            "tags": [],
+            "i18n": {},
+            "id": "156899327"
+        }
+    }
+}
