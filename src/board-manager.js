@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function () {
             if (typeof pc !== 'undefined') {
                 mvAll();
             }
-        }, 5000
+        }, 500
     );
 });
 
@@ -108,45 +108,128 @@ function areObjectsEqual(obj1, obj2) {
 }
 
 
-const nameToPosition = {};
-const positionToName = {};
+const getBase = (piece) => (piece.type + piece.color).toUpperCase();
 
-function mvAll() {
-    const board = chess.board()
-    const pieceEntities = collectPieces()
+function getMoves(oldBoard, newBoard) {
+    console.log(oldBoard, newBoard)
 
-    if (imove < moves.length) {
-        console.log(moves, moves[imove]);
-        chess.move(moves[imove]);
-        imove++;
-    }
-
+    var mismatch = [];
     for (i = 0; i < 8; ++i) {
         for (j = 0; j < 8; ++j) {
-            const piece = board[i][j]
-            if (piece === null) {
+            if (oldBoard[i][j] == null && newBoard[i][j] == null) continue
+            if (oldBoard[i][j] == null || newBoard[i][j] == null) {
+                mismatch.push(oldBoard[i][j] == null
+                    ? newBoard[i][j].square
+                    : oldBoard[i][j].square)
                 continue
             }
-
-            const base = (piece.type + piece.color).toUpperCase()
-            const position = chessCellToCoordinates(piece.square)
-
-            const suffixes = ["", "1", "2", "3", "4", "5", "6", "7", "8"];
-            for (let suff of suffixes) {
-                const name = `${base}${suff}`
-                if (name in pieceEntities) {
-                    if (!areObjectsEqual(position, nameToPosition[name])) {
-                        pieceEntities[name].rigidbody.teleport(position.x, 1, position.y)
-                        nameToPosition[name] = position;
-                        positionToName[position] = name;
-                    }
-                    delete pieceEntities[name];
-
-                    break
-                }
+            if (getBase(oldBoard[i][j]) != getBase(newBoard[i][j])) {
+                mismatch.push(oldBoard[i][j].square)
             }
         }
     }
 
+    const getBaseSquare = (board, square) => {
+        const x = "a8".charCodeAt(1) - square.charCodeAt(1)
+        const y = square.charCodeAt(0) - "a8".charCodeAt(0)
+        console.log(x, y, square)
+        if (board[x][y] == null)
+            return null
+        return getBase(board[x][y])
+    }
 
+    var movements = {};
+    for (let pos of mismatch) {
+        if (getBaseSquare(oldBoard, pos) != null)
+            movements[getBaseSquare(oldBoard, pos)] = { old: null, new: null }
+        if (getBaseSquare(newBoard, pos) != null)
+            movements[getBaseSquare(newBoard, pos)] = { old: null, new: null }
+    }
+
+    for (let pos of mismatch) {
+        if (getBaseSquare(oldBoard, pos) != null)
+            movements[getBaseSquare(oldBoard, pos)].old = pos
+        if (getBaseSquare(newBoard, pos) != null)
+            movements[getBaseSquare(newBoard, pos)].new = pos
+    }
+
+    return movements
+}
+
+class Board {
+    nameToSquare = {}
+    squareToEntity = {}
+    entites = {}
+    placed = false
+
+    placeAllIfNeeded(board, entities) {
+        if (this.placed) return
+
+        for (var i = 0; i < 8; ++i) {
+            for (var j = 0; j < 8; ++j) {
+                if (board[i][j] == null) continue
+                for (let suff of ["", "1", "2", "3", "4", "5", "6", "7", "8"]) {
+                    const name = `${getBase(board[i][j])}${suff}`
+                    if (name in entities) {
+                        this.placePiece(entities[name], board[i][j].square)
+                        delete entities[name]
+                        break
+                    }
+                }
+            }
+
+            this.placed = true
+        }
+    }
+
+    disposePiece(entity) {
+        entity.rigidbody.teleport(
+            entity.name[1] == "W" ? -6 : +6, 
+            1, 0)
+    }
+
+    placePiece(entity, square) {
+        if (square == null) {
+            return this.disposePiece(entity)
+        }
+
+        const coord = chessCellToCoordinates(square)
+        this.nameToSquare[entity.name] = square
+        this.squareToEntity[square] = entity
+        entity.rigidbody.teleport(coord.x, 1, coord.y)
+    }
+
+    makeMove(move, entity) {
+        console.log(move, entity)
+        this.placePiece(entity, move.new)
+    }
+
+    makeMoves(moves) {
+        console.log(this.squareToEntity)
+        var fullMoves = []
+        for (let move in moves)
+            fullMoves.push({
+                entity: this.squareToEntity[moves[move].old],
+                move: moves[move]
+            })
+        console.log(fullMoves)
+        for (let p of fullMoves)
+            this.makeMove(p.move, p.entity)
+    }
+}
+
+const board = new Board()
+
+function mvAll() {
+    const oldBoard = chess.board()
+    const pieceEntities = collectPieces()
+
+    if (imove < moves.length) {
+        chess.move(moves[imove]);
+        imove++;
+    }
+
+    const newBoard = chess.board()
+    board.placeAllIfNeeded(oldBoard, pieceEntities)
+    board.makeMoves(getMoves(oldBoard, newBoard))
 }
