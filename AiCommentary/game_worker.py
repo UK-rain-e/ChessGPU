@@ -50,7 +50,7 @@ def moves_thread():
             VOICE_TASKS.put((Type.MOVE, move))
         elif line.startswith("audio"):
             audio = VOICE_BUFFER.pop_current_audio()
-            print(audio)
+            print(audio, file=sys.stderr)
         else:
             raise RuntimeError("Invalid request")
 

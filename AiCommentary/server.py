@@ -26,7 +26,7 @@ class Game:
         self.process = subprocess.Popen(
             ["./run_worker.sh"],
             stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True
         )
 
@@ -46,9 +46,11 @@ class Game:
         self.process.stdin.write(f"audio\n")
         self.process.stdin.flush()
 
-        assert(self.process.stdout is not None)
-        output = self.process.stdout.readline()
-        return Path(output)
+        assert(self.process.stderr is not None)
+        output = self.process.stderr.readline().strip()
+        output = Path(output)
+        assert(output.exists())
+        return output
         
 
 games: dict[str, Game] = {}
