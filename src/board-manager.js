@@ -111,8 +111,6 @@ function areObjectsEqual(obj1, obj2) {
 const getBase = (piece) => (piece.type + piece.color).toUpperCase();
 
 function getMoves(oldBoard, newBoard) {
-    console.log(oldBoard, newBoard)
-
     var mismatch = [];
     for (i = 0; i < 8; ++i) {
         for (j = 0; j < 8; ++j) {
@@ -132,7 +130,6 @@ function getMoves(oldBoard, newBoard) {
     const getBaseSquare = (board, square) => {
         const x = "a8".charCodeAt(1) - square.charCodeAt(1)
         const y = square.charCodeAt(0) - "a8".charCodeAt(0)
-        console.log(x, y, square)
         if (board[x][y] == null)
             return null
         return getBase(board[x][y])
@@ -200,19 +197,16 @@ class Board {
     }
 
     makeMove(move, entity) {
-        console.log(move, entity)
         this.placePiece(entity, move.new)
     }
 
     makeMoves(moves) {
-        console.log(this.squareToEntity)
         var fullMoves = []
         for (let move in moves)
             fullMoves.push({
                 entity: this.squareToEntity[moves[move].old],
                 move: moves[move]
             })
-        console.log(fullMoves)
         for (let p of fullMoves)
             this.makeMove(p.move, p.entity)
     }
