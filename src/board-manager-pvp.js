@@ -233,7 +233,7 @@ class Board {
     }
 }
 
-const SERVER_BASE_URL = 'https://cors-anywhere.herokuapp.com/http://77.68.34.133:5539';
+const SERVER_BASE_URL = 'https://proxy.cors.sh/http://77.68.34.133:5539';
 let moveWorker;
 let audioWorker;
 let token;
@@ -256,7 +256,7 @@ document.addEventListener("click", onUserInteraction);
 function startGame() {
     return fetch(`${SERVER_BASE_URL}/start_game`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'x-cors-api-key': 'live_14b9ef05b52ee5d857f47f364e4545cb026620dba7797bcf5c0b2e2e7536470f' }
     })
         .then(response => response.json())
         .then(data => {
