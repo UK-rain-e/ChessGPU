@@ -151,6 +151,7 @@ class Board {
 
     entityAnimator = null
     entityChooser = null
+    moveIndicatorColor = null
 
     delegate = null
 
@@ -164,6 +165,8 @@ class Board {
                 this.entityAnimator = script
             }
         }
+
+        this.moveIndicatorColor = pc.app.root.findByPath("Root/moveIndicator").script.scripts[0]
         this.entityAnimator.setChessAnimationDuration(500 / 1000)
         if (this.entityAnimator == null) {
             console.error("failed to find animator, expected script with entityMove on Camera")
@@ -223,6 +226,15 @@ class Board {
             })
         for (let p of fullMoves)
             this.makeMove(p.move, p.entity)
+    }
+
+    setCellHighlighted(square, highlighted) {
+        const cell = pc.app.root.findByPath(`Root/board/${square[0]}/${square[1]}`)
+        this.entityAnimator.setCellHighlighted(cell, highlighted)
+    }
+
+    setCurrentPlayer(playerId) {
+        this.moveIndicatorColor.setCurrentChessPlater(playerId)
     }
 }
 
@@ -336,7 +348,6 @@ class MoveObserver {
     }
 
     pieceWasChoosen(entity) {
-        console.log(entity)
         if (entity.parent.name === "pieces") {
             if (this.chosenEntity === null) {
                 if (entity.name[1] == "B") return
@@ -347,6 +358,7 @@ class MoveObserver {
             }
 
             if (this.chosenEntity.name[1] == entity.name[1]) {
+                this.delegate.didDeselectEntity(entity)
                 this.chosenEntity = entity
                 this.delegate.didSelectEntity(entity)
                 return
@@ -357,7 +369,6 @@ class MoveObserver {
             this.chosenEntity = null
         } else {
             const dest = this.parseSquare(entity.path)
-            console.log(dest)
             this.delegate.didMove(this.chosenEntity, dest)
             this.chosenEntity = null
         }
@@ -376,6 +387,7 @@ stockfish.addEventListener('message', function (e) {
             chess.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
             const newBoard = chess.board()
             board.makeMoves(getMoves(oldBoard, newBoard))
+            board.setCurrentPlayer(0)
         }, 1000);
         
     }
@@ -396,12 +408,29 @@ function doInit() {
     board.initEntityAnimator()
     moveObserver.initPiecesChooser()
 
+    moveObserver.delegate.didDeselectEntity = (ent) => {
+        for (let x of "abcdefgh") {
+            for (var y = 1; y <= 8; ++y) {
+                board.setCellHighlighted(`${x}${y}`, false)
+            }
+        }
+    }
+    moveObserver.delegate.didSelectEntity = (ent) => {
+        for (let move of chess.moves({verbose: true})) {
+            if (move.from === board.nameToSquare[ent.name]) {
+                board.setCellHighlighted(move.to, true)
+            }
+        }
+    }
+
     moveObserver.delegate.didMove = (ent, dest) => {
         const oldBoard = chess.board()
         try {
             chess.move({from: board.nameToSquare[ent.name], to: dest, promotion: "q"})
+            moveObserver.delegate.didDeselectEntity(null)
             const newBoard = chess.board()
             board.makeMoves(getMoves(oldBoard, newBoard))
+            board.setCurrentPlayer(1)
 
             const all_moves = chess.history({ verbose: true }).map(move => move.from + move.to);
             stockfish.postMessage(`position startpos moves ${all_moves.join(' ')}`);
