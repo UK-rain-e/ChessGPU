@@ -33,17 +33,8 @@ function collectPieces() {
 }
 
 function chessCellToCoordinates(chessCell) {
-    // Check if the input is a valid chess cell notation
-    var cellRegex = /^[a-h][1-8]$/i; // Regular expression for valid chess cell notation
-    if (!cellRegex.test(chessCell)) {
-        console.error("Invalid chess cell notation. Please provide a valid input.");
-        return null;
-    }
-
-    // Convert the chess cell to coordinates
-    var file = chessCell.charCodeAt(0) - 'a'.charCodeAt(0) - 3.5; // Map 'a' to -3.5, 'b' to -2.5, ..., 'h' to 3.5
-    var rank = -parseInt(chessCell.charAt(1), 10) + 4.5; // Map '1' to -3.5, '2' to -2.5, ..., '8' to 3.5
-
+    var file = chessCell.charCodeAt(0) - 'a'.charCodeAt(0) - 3.5;
+    var rank = -parseInt(chessCell.charAt(1), 10) + 4.5;
     return { x: file, y: rank };
 }
 
@@ -66,7 +57,7 @@ const moves = (function () {
     35. Ra7 g6 36. Ra6+ Kc5 37. Ke1 Nf4 38. g3 Nxh3 39. Kd2 Kb5 40. Rd6 Kc5 41. Ra6
     Nf2 42. g4 Bd3 43. Re6 1/2-1/2
     `);
-    return chess.history();
+    return chess.history({verbose: true});
 }());
 const chess = new Chess();
 var imove = 0;
@@ -358,7 +349,7 @@ class MoveObserver {
             }
 
             if (this.chosenEntity.name[1] == entity.name[1]) {
-                this.delegate.didDeselectEntity(entity)
+                this.delegate.didDeselectEntity(this.chosenEntity)
                 this.chosenEntity = entity
                 this.delegate.didSelectEntity(entity)
                 return
@@ -418,6 +409,7 @@ function doInit() {
     moveObserver.delegate.didSelectEntity = (ent) => {
         for (let move of chess.moves({verbose: true})) {
             if (move.from === board.nameToSquare[ent.name]) {
+                board.setCellHighlighted(move.from, true)
                 board.setCellHighlighted(move.to, true)
             }
         }
