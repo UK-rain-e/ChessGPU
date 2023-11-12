@@ -4,8 +4,6 @@ import subprocess
 import openai
 from pathlib import Path
 
-#from playsound import playsound # type: ignore
-
 def get_random_string(length = 10) -> str:
     result_str = ''.join(random.choice(string.ascii_letters) for i in range(length))
     return result_str
@@ -30,6 +28,3 @@ def text_to_audio_openai(text: str) -> Path:
 
 def text_to_audio(text: str) -> Path:
     return text_to_audio_openai(text)
-
-#def play_audio(audio_path: Path) -> None:
-#    playsound(audio_path)

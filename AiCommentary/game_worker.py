@@ -54,11 +54,6 @@ def moves_thread():
         else:
             raise RuntimeError("Invalid request")
 
-# def audio_thread():
-#     while not SHOULD_STOP:
-#         audio = VOICE_BUFFER.pop_current_audio()
-#         voice.play_audio(audio)
-
 def ticks_thread():
     while not SHOULD_STOP:
         sleep(0.1)
@@ -69,19 +64,16 @@ def main():
     global SHOULD_STOP
     moves = threading.Thread(target=moves_thread)
     voice = threading.Thread(target=voice_buffer_thread)
-    # audio = threading.Thread(target=audio_thread)
     ticks = threading.Thread(target=ticks_thread)
  
     moves.start()
     voice.start()
-    # audio.start()
     ticks.start()
  
     moves.join()
     VOICE_TASKS.put((Type.STOP, ))
     SHOULD_STOP = True
     voice.join()
-    # audio.join()
     ticks.join()
 
 if __name__ == "__main__":

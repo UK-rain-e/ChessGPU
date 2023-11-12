@@ -10,7 +10,7 @@ say $1
 exit 0
 
 time curl https://api.openai.com/v1/audio/speech \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer ${OPENAPI_TOKEN}" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "tts-1",

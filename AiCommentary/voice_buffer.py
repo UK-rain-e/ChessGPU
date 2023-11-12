@@ -41,8 +41,6 @@ class VoiceBuffer:
             print(f"Commentary requests exceeded limit {MAX_COMMENTARY_REQUESTS}. Returning default audio")
             self.audio_buffer.append(DEFAULT_AUDIO_PATH)
             return
-        # print(f"Requesting commentary for move: {move}. Current buffer size={len(self.audio_buffer)}", flush=True)
         comment = commentary.get_response(move)
-        # print(f"Commentary: {comment}", flush=True)
         audio_file = voice.text_to_audio(comment)
         self.audio_buffer.append(audio_file)
