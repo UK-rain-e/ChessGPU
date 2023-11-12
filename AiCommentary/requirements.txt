@@ -1,3 +1,5 @@
 openai
 playsound
 chess
+fastapi
+uvicorn
