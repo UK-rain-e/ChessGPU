@@ -337,15 +337,16 @@ class MoveObserver {
 
     pieceWasChoosen(entity) {
         console.log(entity)
-        if (entity === this.chosenEntity) {
-            this.chosenEntity = null
-            this.delegate.didDeselectEntity(entity)
-            return
-        }
         if (entity.parent.name === "pieces") {
             if (this.chosenEntity === null) {
                 if (entity.name[1] == "B") return
 
+                this.chosenEntity = entity
+                this.delegate.didSelectEntity(entity)
+                return
+            }
+
+            if (this.chosenEntity.name[1] == entity.name[1]) {
                 this.chosenEntity = entity
                 this.delegate.didSelectEntity(entity)
                 return
