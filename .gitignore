@@ -140,7 +140,3 @@ __pycache__/
 generated/
 .ipynb_checkpoints
 .venv/
-
-# Server keys
-cert.pem
-key.pem
