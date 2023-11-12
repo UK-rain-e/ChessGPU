@@ -57,7 +57,7 @@ const moves = (function () {
     35. Ra7 g6 36. Ra6+ Kc5 37. Ke1 Nf4 38. g3 Nxh3 39. Kd2 Kb5 40. Rd6 Kc5 41. Ra6
     Nf2 42. g4 Bd3 43. Re6 1/2-1/2
     `);
-    return chess.history({verbose: true});
+    return chess.history({ verbose: true });
 }());
 var imove = 0;
 
@@ -188,7 +188,7 @@ class Board {
         const x = (entity.name[1] == "W" ? -7 : +7) + Math.random() * 4 - 2
         const y = Math.random() * 4 - 2
         // entity.rigidbody.teleport(x, 1, y)
-        this.entityAnimator.chessPieceMove(entity, {x: x, y: 0, z: y})
+        this.entityAnimator.chessPieceMove(entity, { x: x, y: 0, z: y })
     }
 
     placePiece(entity, square) {
@@ -201,7 +201,7 @@ class Board {
         this.squareToEntity[square] = entity
 
         // entity.rigidbody.teleport(coord.x, 1, coord.y)
-        this.entityAnimator.chessPieceMove(entity, {x: coord.x, y: 0, z: coord.y})
+        this.entityAnimator.chessPieceMove(entity, { x: coord.x, y: 0, z: coord.y })
     }
 
     makeMove(move, entity) {
@@ -233,7 +233,7 @@ class Board {
     }
 }
 
-const SERVER_BASE_URL = 'https://cors-anywhere.herokuapp.com/http://77.68.34.133:5539'; 
+const SERVER_BASE_URL = 'https://cors-anywhere.herokuapp.com/http://77.68.34.133:5539';
 let moveWorker;
 let audioWorker;
 let token;
@@ -246,7 +246,7 @@ function onUserInteraction() {
     if (token) {
         if (audioWorker) {
             audioWorkerStarted = true;
-            audioWorker.postMessage({url: `${SERVER_BASE_URL}`, token});
+            audioWorker.postMessage({ url: `${SERVER_BASE_URL}`, token });
         }
     }
 }
@@ -258,13 +258,13 @@ function startGame() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
     })
-    .then(response => response.json())
-    .then(data => {
-        token = data.token;
-        console.info('Received token:', token)
-        return token;
-    })
-    .catch(err => console.error('Error starting game:', err));
+        .then(response => response.json())
+        .then(data => {
+            token = data.token;
+            console.info('Received token:', token)
+            return token;
+        })
+        .catch(err => console.error('Error starting game:', err));
 }
 
 function initializeWorkers(token) {
@@ -272,15 +272,15 @@ function initializeWorkers(token) {
         moveWorker = new Worker('src/move-worker.js');
         audioWorker = new Worker('src/audio-worker.js');
 
-        audioWorker.onmessage = function(e) {
+        audioWorker.onmessage = function (e) {
             if (e.data instanceof Blob) {
                 console.info('Got new commentary. Playing...');
                 const audioURL = URL.createObjectURL(e.data);
                 const audio = new Audio(audioURL);
                 audio.play();
 
-                audio.onended = function() {
-                audioWorker.postMessage({url: `${SERVER_BASE_URL}`, token}); // Request the next audio file
+                audio.onended = function () {
+                    audioWorker.postMessage({ url: `${SERVER_BASE_URL}`, token }); // Request the next audio file
                 };
             } else {
                 console.error('Error from audio worker:', e.data.error);
@@ -289,7 +289,7 @@ function initializeWorkers(token) {
         // Start playing the first audio file
         if (userInteracted) {
             if (!audioWorkerStarted) {
-                audioWorker.postMessage({url: `${SERVER_BASE_URL}`, token});
+                audioWorker.postMessage({ url: `${SERVER_BASE_URL}`, token });
             }
         }
     } else {
@@ -298,11 +298,11 @@ function initializeWorkers(token) {
 }
 
 function makeMove(move) {
-  if (moveWorker) {
-    moveWorker.postMessage({ url: `${SERVER_BASE_URL}/move`, token, move });
-  } else {
-    console.error('MoveWorker is not initialised yet');
-  }
+    if (moveWorker) {
+        moveWorker.postMessage({ url: `${SERVER_BASE_URL}/move`, token, move });
+    } else {
+        console.error('MoveWorker is not initialised yet');
+    }
 }
 
 class MovePicker {
@@ -380,7 +380,7 @@ var stockfish = new Worker('src/stockfish.js');
 //         setTimeout(()=> {
 //             game.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
 //         }, 1000);
-        
+
 //     }
 // });
 
@@ -413,7 +413,7 @@ class Game {
                 }
             },
             didSelectEntity: (ent) => {
-                for (let move of game.chess.moves({verbose: true})) {
+                for (let move of game.chess.moves({ verbose: true })) {
                     if (move.from === this.board.nameToSquare[ent.name]) {
                         this.board.setCellHighlighted(move.from, true)
                         this.board.setCellHighlighted(move.to, true)
@@ -421,7 +421,7 @@ class Game {
                 }
             },
             pickedMove: (ent, dest) => {
-                if (this.move({from: this.board.nameToSquare[ent.name], to: dest, promotion: "q"})) {
+                if (this.move({ from: this.board.nameToSquare[ent.name], to: dest, promotion: "q" })) {
                     this.picker.delegate.didDeselectEntity(null)
                     const allMoves = this.chess.history({ verbose: true }).map(move => move.from + move.to);
                     stockfish.postMessage(`position startpos moves ${allMoves.join(' ')}`);
@@ -482,7 +482,8 @@ wasInit = false
 window.addEventListener("DOMContentLoaded", function () {
     setInterval(
         () => {
-            if (typeof pc !== 'undefined') {
+            if (typeof pc !== 'undefined' &&
+                pc.app.root.findByPath("Root/Camera") != null) {
                 if (!wasInit) {
                     doInit()
                     wasInit = true

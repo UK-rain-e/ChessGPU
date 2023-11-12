@@ -482,7 +482,8 @@ wasInit = false
 window.addEventListener("DOMContentLoaded", function () {
     setInterval(
         () => {
-            if (typeof pc !== 'undefined') {
+            if (typeof pc !== 'undefined' &&
+                pc.app.root.findByPath("Root/Camera") != null) {
                 if (!wasInit) {
                     doInit()
                     wasInit = true
