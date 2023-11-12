@@ -233,7 +233,7 @@ class Board {
     }
 }
 
-const SERVER_BASE_URL = 'http://77.68.34.133:5539'; 
+const SERVER_BASE_URL = 'https://cors-anywhere.herokuapp.com/http://77.68.34.133:5539'; 
 let moveWorker;
 let audioWorker;
 let token;
