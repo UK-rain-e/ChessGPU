@@ -59,7 +59,6 @@ const moves = (function () {
     `);
     return chess.history({verbose: true});
 }());
-const chess = new Chess();
 var imove = 0;
 
 function areObjectsEqual(obj1, obj2) {
@@ -173,7 +172,8 @@ class Board {
                 for (let suff of ["", "1", "2", "3", "4", "5", "6", "7", "8"]) {
                     const name = `${getBase(board[i][j])}${suff}`
                     if (name in entities) {
-                        this.placePiece(entities[name], board[i][j].square)
+                        this.nameToSquare[name] = board[i][j].square
+                        this.squareToEntity[board[i][j].square] = entities[name]
                         delete entities[name]
                         break
                     }
@@ -222,6 +222,10 @@ class Board {
     setCellHighlighted(square, highlighted) {
         const cell = pc.app.root.findByPath(`Root/board/${square[0]}/${square[1]}`)
         this.entityAnimator.setCellHighlighted(cell, highlighted)
+    }
+
+    setGameEnded(result) {
+        this.entityAnimator.setGameEnded(result)
     }
 
     setCurrentPlayer(playerId) {
@@ -301,9 +305,7 @@ function makeMove(move) {
   }
 }
 
-startGame().then(initializeWorkers);
-
-class MoveObserver {
+class MovePicker {
     chosenEntity = null
     entityChooser = null
     delegate = null
@@ -356,12 +358,14 @@ class MoveObserver {
             }
 
             const dest = this.board.nameToSquare[entity.name]
-            this.delegate.didMove(this.chosenEntity, dest)
+            this.delegate.pickedMove(this.chosenEntity, dest)
             this.chosenEntity = null
         } else {
-            const dest = this.parseSquare(entity.path)
-            this.delegate.didMove(this.chosenEntity, dest)
-            this.chosenEntity = null
+            if (this.chosenEntity !== null) {
+                const dest = this.parseSquare(entity.path)
+                this.delegate.pickedMove(this.chosenEntity, dest)
+                this.chosenEntity = null
+            }
         }
     }
 }
@@ -374,11 +378,7 @@ stockfish.addEventListener('message', function (e) {
         console.log('Stockfish best Move:', move);
 
         setTimeout(()=> {
-            const oldBoard = chess.board()
-            chess.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
-            const newBoard = chess.board()
-            board.makeMoves(getMoves(oldBoard, newBoard))
-            board.setCurrentPlayer(0)
+            game.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
         }, 1000);
         
     }
@@ -386,53 +386,77 @@ stockfish.addEventListener('message', function (e) {
 
 stockfish.postMessage('uci');
 
-const board = new Board()
-const moveObserver = new MoveObserver()
-moveObserver.board = board
-moveObserver.delegate = {
-    didSelectEntity: (ent) => console.log("did select", ent),
-    didDeselectEntity: (ent) => console.log("did deselect", ent),
-    didMove: (ent, dest) => console.log("did move", ent, dest)
+class Game {
+    wasInit = false
+
+    constructor() {
+        this.chess = new Chess()
+        this.board = new Board()
+        this.picker = new MovePicker()
+    }
+
+    initComponents() {
+        if (this.wasInit) return
+        this.wasInit = true
+
+        this.board.initEntityAnimator()
+        this.board.placeAllIfNeeded(this.chess.board(), collectPieces())
+
+        this.picker.board = this.board
+        this.picker.initPiecesChooser()
+        this.picker.delegate = {
+            didDeselectEntity: (ent) => {
+                for (let x of "abcdefgh") {
+                    for (var y = 1; y <= 8; ++y) {
+                        this.board.setCellHighlighted(`${x}${y}`, false)
+                    }
+                }
+            },
+            didSelectEntity: (ent) => {
+                for (let move of game.chess.moves({verbose: true})) {
+                    if (move.from === this.board.nameToSquare[ent.name]) {
+                        this.board.setCellHighlighted(move.from, true)
+                        this.board.setCellHighlighted(move.to, true)
+                    }
+                }
+            },
+            pickedMove: (ent, dest) => {
+                if (this.move({from: this.board.nameToSquare[ent.name], to: dest, promotion: "q"})) {
+                    this.picker.delegate.didDeselectEntity(null)
+                    const allMoves = this.chess.history({ verbose: true }).map(move => move.from + move.to);
+                    stockfish.postMessage(`position startpos moves ${allMoves.join(' ')}`);
+                    stockfish.postMessage('go depth 2');
+                }
+            }
+        }
+    }
+
+    move(o) {
+        try {
+            const oldBoard = this.chess.board()
+            this.chess.move(o)
+            const newBoard = this.chess.board()
+            this.board.makeMoves(getMoves(oldBoard, newBoard))
+            this.board.setCurrentPlayer(this.chess.turn() === 'b' ? 1 : 0)
+            if (this.chess.isGameOver()) {
+                this.board.setGameEnded({
+                    draw: this.chess.isDraw(),
+                    turn: this.chess.turn()
+                })
+            }
+            return true
+        } catch (e) {
+            console.log("failed to make move:", e)
+            return false
+        }
+    }
 }
 
+const game = new Game()
+
 function doInit() {
-    board.initEntityAnimator()
-    moveObserver.initPiecesChooser()
-
-    moveObserver.delegate.didDeselectEntity = (ent) => {
-        for (let x of "abcdefgh") {
-            for (var y = 1; y <= 8; ++y) {
-                board.setCellHighlighted(`${x}${y}`, false)
-            }
-        }
-    }
-    moveObserver.delegate.didSelectEntity = (ent) => {
-        for (let move of chess.moves({verbose: true})) {
-            if (move.from === board.nameToSquare[ent.name]) {
-                board.setCellHighlighted(move.from, true)
-                board.setCellHighlighted(move.to, true)
-            }
-        }
-    }
-
-    moveObserver.delegate.didMove = (ent, dest) => {
-        const oldBoard = chess.board()
-        try {
-            chess.move({from: board.nameToSquare[ent.name], to: dest, promotion: "q"})
-            moveObserver.delegate.didDeselectEntity(null)
-            const newBoard = chess.board()
-            board.makeMoves(getMoves(oldBoard, newBoard))
-            board.setCurrentPlayer(1)
-
-            const all_moves = chess.history({ verbose: true }).map(move => move.from + move.to);
-            stockfish.postMessage(`position startpos moves ${all_moves.join(' ')}`);
-            stockfish.postMessage('go depth 2');
-        } catch {
-
-        }
-    }
-
-    board.placeAllIfNeeded(chess.board(), collectPieces())
+    game.initComponents()
+    startGame().then(initializeWorkers);
 }
 
 function mvAll() {
@@ -440,7 +464,7 @@ function mvAll() {
     const pieceEntities = collectPieces()
 
     board.initEntityAnimator()
-    moveObserver.initPiecesChooser()
+    movePicker.initPiecesChooser()
 
     if (imove < moves.length) {
         chess.move(moves[imove]);
