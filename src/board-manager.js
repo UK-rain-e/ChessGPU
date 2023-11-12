@@ -32,16 +32,6 @@ function collectPieces() {
     return pieces
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-    setInterval(
-        () => {
-            if (typeof pc !== 'undefined') {
-                mvAll();
-            }
-        }, 500
-    );
-});
-
 function chessCellToCoordinates(chessCell) {
     // Check if the input is a valid chess cell notation
     var cellRegex = /^[a-h][1-8]$/i; // Regular expression for valid chess cell notation
@@ -159,6 +149,27 @@ class Board {
     entites = {}
     placed = false
 
+    entityAnimator = null
+    entityChooser = null
+
+    delegate = null
+
+    initEntityAnimator() {
+        if (this.entityAnimator !== null) return
+
+        const camera = pc.app.root.findByPath("Root/Camera")
+        const scripts = camera.script.scripts
+        for (let script of scripts) {
+            if ("entityMove" in script) {
+                this.entityAnimator = script
+            }
+        }
+        this.entityAnimator.setChessAnimationDuration(500 / 1000)
+        if (this.entityAnimator == null) {
+            console.error("failed to find animator, expected script with entityMove on Camera")
+        }
+    }
+
     placeAllIfNeeded(board, entities) {
         if (this.placed) return
 
@@ -180,9 +191,10 @@ class Board {
     }
 
     disposePiece(entity) {
-        entity.rigidbody.teleport(
-            entity.name[1] == "W" ? -6 : +6, 
-            1, 0)
+        const x = (entity.name[1] == "W" ? -7 : +7) + Math.random() * 4 - 2
+        const y = Math.random() * 4 - 2
+        // entity.rigidbody.teleport(x, 1, y)
+        this.entityAnimator.chessPieceMove(entity, {x: x, y: 0, z: y})
     }
 
     placePiece(entity, square) {
@@ -193,7 +205,9 @@ class Board {
         const coord = chessCellToCoordinates(square)
         this.nameToSquare[entity.name] = square
         this.squareToEntity[square] = entity
-        entity.rigidbody.teleport(coord.x, 1, coord.y)
+
+        // entity.rigidbody.teleport(coord.x, 1, coord.y)
+        this.entityAnimator.chessPieceMove(entity, {x: coord.x, y: 0, z: coord.y})
     }
 
     makeMove(move, entity) {
@@ -212,11 +226,80 @@ class Board {
     }
 }
 
+class MoveObserver {
+    chosenEntity = null
+    entityChooser = null
+    delegate = null
+    board = null
+
+    initPiecesChooser() {
+        if (this.entityChooser !== null) return
+
+        const camera = pc.app.root.findByPath("Root/Camera")
+        const scripts = camera.script.scripts
+        for (let script of scripts) {
+            if ("mousePicker" in script) {
+                this.entityChooser = script
+            }
+        }
+        this.entityChooser.setChessPickCallback((entity) => { this.pieceWasChoosen(entity) })
+
+        if (this.entityChooser == null) {
+            console.error("failed to find chooser, expected script with entityMove on Camera")
+        }
+    }
+
+    parseSquare(path) {
+        // Split the string by "/"
+        var parts = path.split("/");
+
+        // Get the last two parts
+        var column = parts[parts.length - 2];
+        var row = parts[parts.length - 1];
+
+        // Combine the parts to get "a8"
+        return column + row
+    }
+
+    pieceWasChoosen(entity) {
+        if (entity === this.chosenEntity) {
+            this.chosenEntity = null
+            this.delegate.didDeselectEntity(entity)
+            return
+        }
+        if (entity.parent.name === "pieces") {
+            if (this.chosenEntity === null) {
+                this.chosenEntity = entity
+                this.delegate.didSelectEntity(entity)
+                return
+            }
+
+            const dest = this.board.nameToSquare[entity.name]
+            this.delegate.didMove(this.chosenEntity, dest)
+            this.chosenEntity = null
+        } else {
+            const dest = this.parseSquare(entity.path)
+            this.delegate.didMove(this.chosenEntity, dest)
+            this.chosenEntity = null
+        }
+    }
+}
+
 const board = new Board()
+const moveObserver = new MoveObserver()
+moveObserver.board = board
+moveObserver.delegate = {
+    didSelectEntity: (ent) => console.log("did select", ent),
+    didDeselectEntity: (ent) => console.log("did deselect", ent),
+    didMove: (ent, dest) => console.log("did move", ent, dest)
+}
 
 function mvAll() {
     const oldBoard = chess.board()
     const pieceEntities = collectPieces()
+
+    board.initEntityAnimator()
+    moveObserver.initPiecesChooser()
 
     if (imove < moves.length) {
         chess.move(moves[imove]);
@@ -227,3 +310,13 @@ function mvAll() {
     board.placeAllIfNeeded(oldBoard, pieceEntities)
     board.makeMoves(getMoves(oldBoard, newBoard))
 }
+
+window.addEventListener("DOMContentLoaded", function () {
+    setInterval(
+        () => {
+            if (typeof pc !== 'undefined') {
+                mvAll();
+            }
+        }, 1000
+    );
+});
