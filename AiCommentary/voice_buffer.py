@@ -6,7 +6,7 @@ import commentary
 import voice
 from move import Move
 
-MAX_COMMENTARY_REQUESTS = 1
+MAX_COMMENTARY_REQUESTS = 100
 DEFAULT_AUDIO_PATH = Path("./default_background_music.mp3")
 
 class VoiceBuffer:
