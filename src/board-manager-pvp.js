@@ -343,7 +343,7 @@ class MovePicker {
     pieceWasChoosen(entity) {
         if (entity.parent.name === "pieces") {
             if (this.chosenEntity === null) {
-                if (entity.name[1] == "B") return
+                // if (entity.name[1] == "B") return
 
                 this.chosenEntity = entity
                 this.delegate.didSelectEntity(entity)
@@ -372,19 +372,19 @@ class MovePicker {
 
 var stockfish = new Worker('src/stockfish.js');
 
-stockfish.addEventListener('message', function (e) {
-    if (e.data.startsWith('bestmove')) {
-        const move = e.data.split(' ')[1]; // Parse the best move
-        console.log('Stockfish best Move:', move);
+// stockfish.addEventListener('message', function (e) {
+//     if (e.data.startsWith('bestmove')) {
+//         const move = e.data.split(' ')[1]; // Parse the best move
+//         console.log('Stockfish best Move:', move);
 
-        setTimeout(()=> {
-            game.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
-        }, 1000);
+//         setTimeout(()=> {
+//             game.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
+//         }, 1000);
         
-    }
-});
+//     }
+// });
 
-stockfish.postMessage('uci');
+// stockfish.postMessage('uci');
 
 class Game {
     wasInit = false
@@ -487,6 +487,11 @@ window.addEventListener("DOMContentLoaded", function () {
                     doInit()
                     wasInit = true
                 }
+
+                // if (imove < moves.length) {
+                //     game.move(moves[imove])
+                //     imove++
+                // }
             }
         }, 1000
     );
