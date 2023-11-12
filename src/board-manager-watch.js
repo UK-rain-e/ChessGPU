@@ -435,6 +435,8 @@ class Game {
         try {
             const oldBoard = this.chess.board()
             this.chess.move(o)
+            const hist = this.chess.history()
+            makeMove(hist[hist.length - 1])
             const newBoard = this.chess.board()
             this.board.makeMoves(getMoves(oldBoard, newBoard))
             this.board.setCurrentPlayer(this.chess.turn() === 'b' ? 1 : 0)
