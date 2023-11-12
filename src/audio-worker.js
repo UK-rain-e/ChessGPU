@@ -1,4 +1,4 @@
-self.addEventListener('message', function(e) {
+self.onmessage = function(e) {
     const { url, token } = e.data;
   
     const fetchAndPlayAudio = () => {
@@ -13,5 +13,5 @@ self.addEventListener('message', function(e) {
     };
   
     fetchAndPlayAudio();
-  });
+}
   

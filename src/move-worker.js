@@ -1,4 +1,4 @@
-self.addEventListener('message', function(e) {
+self.onmessage = function(e) {
     const { url, token, move } = e.data;
   
     fetch(url, {
@@ -10,5 +10,5 @@ self.addEventListener('message', function(e) {
     .catch(err => {
         postMessage({ error: err.message });
     });
-  });
+};
   

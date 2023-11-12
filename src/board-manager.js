@@ -344,6 +344,8 @@ class MoveObserver {
         }
         if (entity.parent.name === "pieces") {
             if (this.chosenEntity === null) {
+                if (entity.name[1] == "B") return
+
                 this.chosenEntity = entity
                 this.delegate.didSelectEntity(entity)
                 return
@@ -360,6 +362,25 @@ class MoveObserver {
         }
     }
 }
+
+var stockfish = new Worker('src/stockfish.js');
+
+stockfish.addEventListener('message', function (e) {
+    if (e.data.startsWith('bestmove')) {
+        const move = e.data.split(' ')[1]; // Parse the best move
+        console.log('Stockfish best Move:', move);
+
+        setTimeout(()=> {
+            const oldBoard = chess.board()
+            chess.move({from: move.substring(0, 2), to: move.substring(2, 4), promotion: "q"})
+            const newBoard = chess.board()
+            board.makeMoves(getMoves(oldBoard, newBoard))
+        }, 1000);
+        
+    }
+});
+
+stockfish.postMessage('uci');
 
 const board = new Board()
 const moveObserver = new MoveObserver()
@@ -380,6 +401,10 @@ function doInit() {
             chess.move({from: board.nameToSquare[ent.name], to: dest, promotion: "q"})
             const newBoard = chess.board()
             board.makeMoves(getMoves(oldBoard, newBoard))
+
+            const all_moves = chess.history({ verbose: true }).map(move => move.from + move.to);
+            stockfish.postMessage(`position startpos moves ${all_moves.join(' ')}`);
+            stockfish.postMessage('go depth 2');
         } catch {
 
         }
