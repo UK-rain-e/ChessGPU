@@ -336,6 +336,7 @@ class MoveObserver {
     }
 
     pieceWasChoosen(entity) {
+        console.log(entity)
         if (entity === this.chosenEntity) {
             this.chosenEntity = null
             this.delegate.didDeselectEntity(entity)
@@ -353,6 +354,7 @@ class MoveObserver {
             this.chosenEntity = null
         } else {
             const dest = this.parseSquare(entity.path)
+            console.log(dest)
             this.delegate.didMove(this.chosenEntity, dest)
             this.chosenEntity = null
         }
@@ -366,6 +368,24 @@ moveObserver.delegate = {
     didSelectEntity: (ent) => console.log("did select", ent),
     didDeselectEntity: (ent) => console.log("did deselect", ent),
     didMove: (ent, dest) => console.log("did move", ent, dest)
+}
+
+function doInit() {
+    board.initEntityAnimator()
+    moveObserver.initPiecesChooser()
+
+    moveObserver.delegate.didMove = (ent, dest) => {
+        const oldBoard = chess.board()
+        try {
+            chess.move({from: board.nameToSquare[ent.name], to: dest, promotion: "q"})
+            const newBoard = chess.board()
+            board.makeMoves(getMoves(oldBoard, newBoard))
+        } catch {
+
+        }
+    }
+
+    board.placeAllIfNeeded(chess.board(), collectPieces())
 }
 
 function mvAll() {
@@ -386,11 +406,16 @@ function mvAll() {
     board.makeMoves(getMoves(oldBoard, newBoard))
 }
 
+wasInit = false
+
 window.addEventListener("DOMContentLoaded", function () {
     setInterval(
         () => {
             if (typeof pc !== 'undefined') {
-                mvAll();
+                if (!wasInit) {
+                    doInit()
+                    wasInit = true
+                }
             }
         }, 1000
     );
