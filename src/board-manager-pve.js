@@ -458,7 +458,8 @@ const game = new Game()
 
 function doInit() {
     game.initComponents()
-    startGame().then(initializeWorkers);
+    startGame().then(initializeWorkers)
+    game.board.entityAnimator.setChessAnimationDuration(0.5)
 }
 
 function mvAll() {
@@ -490,6 +491,8 @@ window.addEventListener("DOMContentLoaded", function () {
                     doInit()
                     wasInit = true
                 }
+
+                game.board.entityAnimator.setChessAnimationDuration(0.5)
 
                 // if (imove < moves.length) {
                 //     game.move(moves[imove])
